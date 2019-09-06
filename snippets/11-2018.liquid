@@ -1,0 +1,34 @@
+{% paginate collection.products by 1000 %}
+
+
+    
+
+
+<img src="https://cdn.shopify.com/s/files/1/0714/9533/files/sf_sales_flyer_1000_nightvision.gif?18044400633390401260"><br><br>
+
+{% for product in collection.products %}
+{% if product.tags contains 'SFNV' %}
+{% include 'product-grid-item' %}
+{% endif %}
+{% endfor %}  
+
+<img src="https://cdn.shopify.com/s/files/1/0714/9533/files/sf_sales_flyer_1000_slides.gif?18044400633390401260"><br><br>
+
+{% for product in collection.products %}
+{% if product.tags contains 'SFS' %}
+{% include 'product-grid-item' %}
+{% endif %}
+{% endfor %} 
+
+<img src="https://cdn.shopify.com/s/files/1/0714/9533/files/kr_sales_flyer_1000_efshnt.gif?18044400633390401260"><br><br>
+
+{% for product in collection.products %}
+{% if product.tags contains 'KRE' %}
+{% include 'product-grid-item' %}
+{% endif %}
+{% endfor %} 
+
+{% endpaginate %}
+
+
+

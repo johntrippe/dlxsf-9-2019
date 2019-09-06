@@ -1,0 +1,172 @@
+ {% if search.results %}
+  {% assign upsellProducts = '' %}
+  {% for product in search.results %}
+   {% if product.tags contains '8upsell' %}
+    {% if upsellProducts != '' %}
+     {% assign upsellProducts = upsellProducts | append:',' %}
+    {% endif %}
+    {% assign upsellProducts = upsellProducts | append:product.id %}
+   {% endif %}
+  {% endfor %}
+  {% if upsellProducts %}
+   {% assign upsellProducts = upsellProducts | split: ',' %}
+  {% endif %}
+ {% endif %}
+
+{% assign grid_results = true %}
+
+{% assign respond_js_secret_key = shop.domain | md5 %}
+{% unless search.terms == respond_js_secret_key %}
+
+<div class="order-form-add-to-cart">
+
+          <input class="action-button submit button btn3 right add-to-cart-order-form" type="button" value="Add To Cart" />
+</div>
+
+  <div class="grid">
+    <div class="grid-item">
+
+      <hr class="hr--clear hr--small">
+
+      {% if search.performed %}
+
+        {% paginate search.results by 40 %}
+
+          {% if search.results_count == 0 %}
+
+            <h2 class="text-center">{{ 'general.search.no_results_html' | t: terms: search.terms }}</h2>
+            {% include 'search-bar' %}
+
+          {% else %}
+
+            <h2 class="text-center">{{ 'general.search.results_for_html' | t: terms: search.terms }}</h2>
+            {% include 'search-bar' %}
+            <hr class="hr--clear">
+
+            {% if search.results == empty or search.results.size == upsellProducts.size %}
+
+              {% for item in search.results %}
+            
+                {% include 'search-result' %}
+              {% endfor %}
+
+            {% else %}
+
+              <div class="grid-uniform">
+                {% for item in search.results %}
+                {% unless item.tags contains 'HiddenProduct' %}
+                 {% assign currentSearchItem = item.id | strip_html %}
+ {% if upsellProducts contains currentSearchItem %}
+  {% continue %}
+ {% endif %}
+                  {% assign grid_item_width = 'large--one-fifth medium--one-third small--one-half' %}
+                  
+                  {% include 'search-result-grid2' %}
+                  
+                  
+                {% endunless %}  
+                {% endfor %}
+                
+              </div>
+
+            {% endif %}
+
+          {% endif %}
+
+          {% if paginate.pages > 1 %}
+            <div class="text-center">
+              {% include 'pagination-custom' %}
+            </div>
+          {% endif %}
+
+        {% endpaginate %}
+
+      {% else %}
+
+        {% comment %}
+          If search.performed is false, someone either accessed the page without the q parameter, or it was blank.
+        {% endcomment %}
+        <h2 class="text-center">{{ 'general.search.title' | t }}</h2>
+        {% include 'search-bar' %}
+
+      {% endif %}
+
+    </div>
+  </div>
+
+{% else %}
+  {% include 'respond' %}
+  {% layout none %}
+{% endunless %}
+
+<!-- START SCRIPT TO ADD TO CART -->
+
+<script>
+Shopify.itemsToAdd = [];
+Shopify.addItemstoTheCart = function() {
+  if (Shopify.itemsToAdd.length) {
+    var item = Shopify.itemsToAdd.pop();
+    $.ajax({
+      url: '/cart/add',
+      dataType: 'json',
+      type: 'post',
+      data: item,
+      success: Shopify.addItemstoTheCart,
+      error: Shopify.addItemstoTheCart
+    });
+  }
+    else {
+    window.location = window.location;
+  }
+};
+jQuery(function($) {
+  $('table .quantity:first').focus();
+  $('[max]').change(function() {
+    var max = parseInt($(this).attr('max'), 10);
+    var value = parseInt($(this).val(), 10) || 0;
+    if (value > max) { 
+      alert('We only have ' + max + ' of this item in stock');
+      $(this).val(max); 
+    }    
+  });
+  $('.add-to-cart-order-form').click(function() {
+    $('.add-to-cart-order-form').addClass('disabled').attr('disabled','disabled');
+    // Resetting.
+    Shopify.itemsToAdd = [];
+    $('.quantity').each(function() {
+      var quantity = parseInt($(this).val(), 10);
+      if (quantity) {
+        Shopify.itemsToAdd.push( { id: $(this).attr('data-id'), quantity: quantity } );
+      }
+    });     
+    if (Shopify.itemsToAdd.length) {
+      Shopify.addItemstoTheCart();
+    }
+    else {
+      alert('All quantities are set to zero.');
+      $('.add-to-cart-order-form').removeAttr('disabled').removeClass('disabled');
+    }
+  });
+});
+</script>
+
+  
+<style>
+.action-bar { margin: 15px 0; }
+.action-bar.top { margin: 30px 0 0; }
+.action-bar h1 { margin:0; padding: 0; line-height:1 }
+.left { float: left; }
+.right { float: right; }
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+/* Additional styles for table */
+table.pure-table { margin: 15px 0; width: 100%; }
+table.pure-table tr td:first-child, table.pure-table tr th:first-child { padding-left: 12px; }
+table.pure-table tr td:last-child, table.pure-table tr th:last-child { padding-right: 12px; }
+table.pure-table img { float:left; padding: 5px 0; }
+table.pure-table td { vertical-align: middle; }
+.quantity { text-align: center; width: 60px !important; margin: 0 !important; }
+</style>
+
+<!-- END SCRIPT TO ADD TO CART -->

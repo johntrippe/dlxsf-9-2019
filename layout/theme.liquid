@@ -1,0 +1,352 @@
+
+
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-touch no-js"> <!--<![endif]-->
+
+
+<head>
+	
+<!-- START GOOGLE ADS -->
+
+
+<!-- Global site tag (gtag.js) - Google Ads: 1005054919 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1005054919"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1005054919');
+</script>
+
+
+<!-- END GOOGLE ADS -->
+
+	
+<!-- Guided Tour -->
+<script src="//cdn.shopify.com/s/files/1/1241/4272/t/5/assets/intro.min.js"></script>
+<link rel="stylesheet" href="//cdn.shopify.com/s/files/1/1241/4272/t/5/assets/introjs.min.css">
+<!-- Guided Tour -->
+
+
+
+
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WPJCFFC');</script>
+<!-- End Google Tag Manager -->
+{% unless customer %}
+    {% if template contains 'customers' %}
+        {% assign send_to_login = false %}
+    {% else %}
+        {% assign send_to_login = true %}
+    {% endif %}
+{% endunless %}
+
+{% if send_to_login %}
+<script type="text/javascript"><!--
+
+location.replace("/account/login");
+
+//--></script>
+{% endif %}
+
+
+
+
+  <!-- Basic page needs ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  {% if settings.favicon_enable %}
+  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
+  {% endif %}
+
+  <!-- Title and description ================================================== -->
+  <title>
+  {{ page_title }}{% if current_tags %}{% assign current_tags_joined = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: current_tags_joined }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <!-- Product meta ================================================== -->
+  {% include 'open-graph-tags' %}
+  {% include 'twitter-card' %}
+
+  <!-- Helpers ================================================== -->
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  {% if settings.ajax_cart_enable %}
+  <!-- Ajaxify Cart Plugin ================================================== -->
+  {{ 'ajaxify.scss.css' | asset_url | stylesheet_tag }}
+  {% endif %}
+
+  <!-- CSS ================================================== -->
+  {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+  {% include 'google-fonts' %}
+
+  <!-- Header hook for plugins ================================================== -->
+  {% include 'buddha-megamenu-before' %}
+  {% include 'buddha-megamenu' %}
+  {{ content_for_header }}
+
+  {% include 'oldIE-js' %}
+
+  {% comment %}
+    If you store has customers disabled, you can remove the following JS file
+  {% endcomment %}
+  {% if template contains 'customers' %}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+    {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
+  {% endif %}
+
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
+  {{ 'modernizr.min.js' | asset_url | script_tag }}
+
+
+	{% include 'magiczoomplus.headers' %}
+{% assign nowts = "now" | date: "%s" %}{% assign metats = shop.metafields._ls_meta.check %}{% assign timediff = nowts | minus: metats %}{% if timediff < 604800 %}<script async="async" src="https://livesearch.okasconcepts.com/js/livesearch.init.min.js?v=2&shop=dlxsf.myshopify.com"></script>{% endif %}
+
+
+
+</head>
+
+<body id="{{ page_title | handle }}" {% if  collection.title == "Krooked Decks" or collection.title == "Krooked Apparel" %} class="krooked" {% elsif collection.title == "Spitfire Wheels" or collection.title == "Spitfire Apparel" %} class="spitfire" {% elsif collection.title == "Thunder Trucks" or collection.title == "Thunder Apparel" %} class="thunder" {% elsif collection.title == "Venture Trucks" or collection.title == "Venture Apparel" %} class="venture" {% elsif collection.title == "REAL Decks" or collection.title == "REAL Apparel" %} class="real" {% elsif collection.title == "Antihero Decks" or collection.title == "Antihero Apparel" %} class="antihero" {% else %} class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" {% endif %}>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPJCFFC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- START CHAT CODE -->
+<script async type="text/javascript" src="//userlike-cdn-widgets.s3-eu-west-1.amazonaws.com/1edc32ff32bf59f94fda43e861a03fb6312c8f9f42505a3e358424c6c6712ebe.js"></script> 
+
+<!-- END CHAT CODE -->
+
+  {% include 'buddha-megamenu-wireframe' %}
+  <header class="site-header" role="banner">
+    <div class="wrapper">
+
+      <div class="grid--full">
+        <div class="grid-item large--one-half">
+          {% if template == 'index' %}
+            <h1 class="header-logo large--left" itemscope itemtype="http://schema.org/Organization">
+          {% else %}
+            <div class="h1 header-logo large--left" itemscope itemtype="http://schema.org/Organization">
+          {% endif %}
+            {% if settings.logo_use_image %}
+              <a href="/" itemprop="url">
+                <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+              </a>
+            {% else %}
+              <a href="/" itemprop="url">{{ shop.name }}</a>
+            {% endif %}
+          {% if template == 'index' %}
+            </h1>
+          {% else %}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="grid-item large--one-half text-center large--text-right">
+          {% if settings.header_message != blank or shop.customer_accounts_enabled %}
+            <div class="site-header--text-links{% if settings.header_message == blank %} medium-down--hide{% endif %}">
+              {% if settings.header_message != blank %}
+                {{ settings.header_message }}
+              {% endif %}
+
+              {% if shop.customer_accounts_enabled %}
+                <span class="site-header--meta-links medium-down--hide">{% if template contains 'index' %}{% else %}<a class="class_name" href="javascript:void(0);" onclick="javascript:introJs().start();">SITE HELP</a> - {% endif %} 
+                  {% if customer %}
+                    <a href="/account">[ <font color="#0099cc">order history</font> ]</a>
+                     &middot; {{ 'layout.customer.log_out' | t | customer_logout_link }}
+                  {% else %}
+                    {{ 'layout.customer.sign_in' | t | customer_login_link }}
+                    {% if shop.customer_accounts_optional %}
+                    <span class="site-header--spacer">{{ 'layout.customer.or' | t }}</span>
+                    {{ 'layout.customer.create_account' | t | customer_register_link }}
+                    {% endif %}
+                  {% endif %}
+                </span>
+              {% endif %}
+              <br>{{ cart.item_count }} {{ cart.item_count | pluralize: 'Item', 'Items' }} ({{ cart.total_price | money }})
+            </div>
+
+            <br class="medium-down--hide">
+          {% endif %}
+
+          {% include 'search-bar' %}
+
+          <a href="/cart" class="header-cart-btn">
+            <span class="icon icon-cart"></span>
+            {{ 'layout.cart.cart' | t }} <span id="cartCount" {% if cart.item_count == 0 %}class="hidden-count"{% endif %}>{{ cart.item_count }}</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </header>
+  
+
+<script type="text/javascript">	
+if($(window).width() >= 900){	
+	jQuery("document").ready(function($){
+	
+	var nav2 = $('.nav-container');
+	
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 136) {
+			nav2.addClass("f-nav");
+		} else {
+			nav2.removeClass("f-nav");
+		}
+	});
+
+});
+}
+</script>
+
+
+<script type="text/javascript">	
+
+	jQuery("document").ready(function($){
+	
+	var nav3 = $('.order-form-add-to-cart');
+	
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 136) {
+			nav3.addClass("f-nav3");
+			
+			var ThisSpantwo = document.getElementById('hide-cart');
+			ThisSpantwo.style.display = "";
+			
+			
+		} else {
+			nav3.removeClass("f-nav3");
+		}
+	});
+
+});
+
+</script>
+
+
+
+
+			
+<div class="nav-container">
+  <nav class="nav-bar" role="navigation">
+    <div class="wrapper">
+      {% include 'search-bar' %}
+      {% include 'site-nav' %}
+    </div>
+  </nav>
+</div>
+
+  <div id="mobileNavBar">
+    <div class="display-table-cell">
+      <a class="menu-toggle mobileNavBar-link">{{ 'layout.navigation.mobile_menu' | t }}</a>
+    </div>
+    <div class="display-table-cell">
+      <a href="/cart" class="cart-toggle mobileNavBar-link">
+        <span class="icon icon-cart"></span>
+        {{ 'layout.cart.cart' | t }}
+      </a>
+    </div>
+  </div>
+
+  <main class="wrapper main-content" role="main"  style="background: #FFF;">
+
+    {{ content_for_layout }}
+
+  </main>
+
+  {% include 'footer' %}
+
+{% if settings.slider_home_enable %}
+  {{ 'jquery.flexslider.min.js' | asset_url | script_tag }}
+{% endif %}
+
+  {{ 'shop.js' | asset_url | script_tag }}
+  <script>
+  var moneyFormat = '{{ shop.money_format }}';
+  </script>
+
+{% if settings.ajax_cart_enable %}
+  {{ 'handlebars.min.js' | asset_url | script_tag }}
+  {% include 'ajax-cart-template' %}
+  {{ 'ajaxify.js' | asset_url | script_tag }}
+  <script>
+  jQuery(function($) {
+    ajaxifyShopify.init({
+      method: '{{ settings.ajax_cart_method }}',
+      wrapperClass: 'wrapper',
+      formSelector: '#addToCartForm',
+      addToCartSelector: '#addToCart',
+      cartCountSelector: '#cartCount',
+      toggleCartButton: '.cart-toggle',
+      useCartTemplate: true,
+      btnClass: 'btn',
+      moneyFormat: {{ shop.money_format | json }},
+      disableAjaxCart: false,
+      enableQtySelectors: true
+    });
+  });
+  </script>
+{% endif %}
+
+<!-- START CART ATTRIBUTES CODE -->
+<script>
+jQuery(function(){jQuery("body").on("click",'[name="checkout"], [name="goto_pp"], [name="goto_gc"]',function(){var e=!0,r="Please fill this out and you will be able to check out.";return jQuery('[name^="attributes"], [name="note"]').filter('.required, [required]').each(function(){jQuery(this).removeClass("error"),e&&""==jQuery(this).val()&&(e=!1,r=jQuery(this).attr("data-error")||r,jQuery(this).addClass("error"))}),e?void jQuery(this).submit():(alert(r),!1)})}),jQuery(window).unload(function(){var e=jQuery('form[action="/cart"]');if(e.size()){var r={type:"POST",url:"/cart/update.js",data:e.serialize(),dataType:"json",async:!1};jQuery.ajax(r)}});
+</script>
+<!-- END CART ATTRIBUTES CODE -->
+<!--BeginCFFPersistentCartCart-->
+{% if customer %}
+<script>
+
+    window.cffCustomer = {
+        name: '{{customer.name}}',
+        email: '{{customer.email}}',
+        hasAccount: '{{customer.has_account}}',
+        id: '{{customer.id}}'
+    };
+
+
+</script>
+
+{% endif %}
+
+<script>
+    window.cffPCLiquidPlaced = true
+</script>
+
+<!--EndCFFPersistentCartCart-->
+
+
+<!-- Begin Recently Viewed Products -->
+
+{{ '//ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js' | script_tag }}
+{{ 'jquery.products.min.js' | asset_url | script_tag }}
+
+{% if template contains 'product' %}
+
+<script>
+Shopify.Products.recordRecentlyViewed();
+</script>
+
+{% endif %}
+
+<!-- End Recently Viewed Products -->
+
+</body>
+</html>

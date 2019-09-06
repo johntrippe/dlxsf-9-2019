@@ -1,0 +1,559 @@
+{% comment %}
+  The code below relies on the advanced-tag-loop snippet.
+  The snippet is already included in snippets/breadrumbs.liquid
+  because it is needed there too, but if you remove
+  breadcrumbs you need to include this:
+
+  {% include 'advanced-tag-loop' %}
+{% endcomment %}
+
+<!-- START DROPDOWNS -->
+
+    <div class="grid-uniform" style="padding-right: 10px; background-color: #FFFFFF;">
+
+        <div class="grid-item small--one-half medium--one-third" style="padding-right: 10px;">
+
+<!-- START CART SUMMARY SIDEBAR -->
+
+    <h1 class="h2">{{ 'cart.general.title' | t }}</h1>
+    
+     
+{% for item in cart.items %}
+    {% if item.product.tags contains 'Onsale' or item.product.tags contains 'Price Points' %}{% elsif item.product.type == "Decks" %}   
+         {% capture temp %}{{ num | plus: item.quantity }}{% endcapture %} 
+    {% endif %}
+    {% assign num = temp %}
+{% endfor %}
+ 
+{% for item in cart.items %}   
+    {% if item.product.type == "Trucks" %}       
+         {% capture temp2 %}{{ num_trucks | plus: item.quantity }}{% endcapture %} 
+    {% endif %}
+    {% assign num_trucks = temp2 %}
+{% endfor %}
+
+{% for item in cart.items %} 
+	{% unless item.product.tags contains 'Onsale' %}  
+    {% if item.product.type == "Wheels" %}       
+         {% capture temp3 %}{{ num_wheels | plus: item.quantity }}{% endcapture %} 
+    {% endif %}
+    {% endunless %}
+    {% assign num_wheels = temp3 %}
+{% endfor %}
+
+{% for item in cart.items %}
+    {% if item.product.tags contains 'Onsale' and item.product.type == "Decks" %}       
+         {% capture temp4 %}{{ num_sale | plus: item.quantity }}{% endcapture %} 
+    {% endif %}
+    {% assign num_sale = temp4 %}
+{% endfor %}
+
+{% for item in cart.items %}
+    {% if item.product.tags contains 'Onsale' and item.product.type == "Wheels" %}       
+         {% capture temp9 %}{{ num_sale_wheels | plus: item.quantity }}{% endcapture %} 
+    {% endif %}
+    {% assign num_sale_wheels = temp9 %}
+{% endfor %}
+
+{% for item in cart.items %}
+    {% if item.product.tags contains 'Price Points' and item.product.type == "Decks" %}       
+         {% capture temp5 %}{{ num_pricepoint | plus: item.quantity }}{% endcapture %} 
+    {% endif %}
+    {% assign num_pricepoint = temp5 %}
+{% endfor %}
+
+{% for item in cart.items %}
+	{% assign prefix = item.sku | truncate: 1, '' %}
+	{% if prefix == '6' or prefix == '7' or prefix == '8' %}
+		{% capture temp6 %}{{ num_acc | plus: item.quantity }}{% endcapture %}
+    {% endif %}
+    {% assign num_acc = temp6 %}
+{% endfor %}
+
+{% for item in cart.items %}
+    {% if item.product.type == "Apparel" %}       
+         {% capture temp7 %}{{ num_apparel | plus: item.quantity }}{% endcapture %} 
+    {% endif %}
+    {% assign num_apparel = temp7 %}
+{% endfor %}
+
+{% for item in cart.items %}
+    {% if item.product.type == "Prebook" %}       
+         {% capture temp8 %}{{ num_prebook | plus: item.quantity }}{% endcapture %} 
+    {% endif %}
+    {% assign num_prebook = temp8 %}
+{% endfor %}
+
+
+
+{% if num > '0' %}  
+# Reg Decks: {{ num }}
+{% endif %}
+{% if num_pricepoint > '0' %} 
+<br># Pricepoint Decks: {{ num_pricepoint }}
+{% endif %}
+{% if num_sale > '0' %} 
+<br># Sale Decks: {{ num_sale }}
+{% endif %}
+{% if num_sale_wheels > '0' %} 
+<br># Sale Wheel Sets: {{ num_sale_wheels }}
+{% endif %}
+{% if num_trucks > '0' %} 
+<br># Truck Sets: {{ num_trucks | divided_by: 2 }}
+{% endif %}
+{% if num_wheels > '0' %} 
+<br># Wheel Sets: {{ num_wheels }}
+{% endif %}
+
+{% if num_apparel > '0' %} 
+<br># Apparel: {{ num_apparel }}
+{% endif %}
+{% if num_acc > '0' %} 
+<br># Accessories: {{ num_acc }}
+{% endif %}
+{% if num_prebook > '0' %} 
+<br># Prebook: {{ num_prebook }}
+{% endif %}
+
+<br>--
+<br>Total: {{ cart.item_count }} {{ cart.item_count | pluralize: 'Item', 'Items' }} ({{ cart.total_price | money }})
+<br><a href="/cart/"><u>View Cart</u></a> - <a href="javascript:window.location.reload();">refresh</a>
+<br><br>
+
+<!-- END CART SUMMARY SIDEBAR -->
+
+<!-- START + CHANGER ON FILTERS -->
+
+<script language="javascript">
+function changeText(idElement) {
+    var element = document.getElementById('element' + idElement);
+    if (idElement === 1 || idElement === 2 || idElement === 3 || idElement === 4 || idElement === 5 || idElement === 6) {
+        if (element.innerHTML === '+') element.innerHTML = '-';
+        else {
+            element.innerHTML = '+';
+        }
+    }
+    }
+   
+ </script>
+
+<div data-intro="Click on filters to browse by size, style, pro, etc" data-step="1">
+		
+{% if collection.title == "Apparel" or collection.title == "Spitfire Apparel"  or collection.title == "Krooked Apparel"  or collection.title == "Venture Apparel" or collection.title == "Antihero Apparel"  or collection.title == "Thunder Apparel" or collection.title == "REAL Apparel" %}
+		<ul class="clearfix filters">
+		<li class="clearfix filter">
+	    {% assign tags = 'Hats, Beanies, Tees, Jackets, Socks, Misc Apparel, Hoodies, Bearings, Bolts, Bushings, Griptape, Misc Hardware, Patches, Risers, Skate Tools, Wax, Youths, Girls/Juniors' | split: ',' %}
+	    <label style="cursor:pointer;" onClick="javascript:changeText(5)" class="tree-toggle-down clearfix filter">&nbsp;&nbsp;TYPE<span id="element5" style="float:right; padding-right:30px;">-</a></label>
+	     <ul class="nav nav-list tree-down bullets">
+	      {% for t in tags %}
+	      {% assign tag = t | strip %}
+	      {% if current_tags contains tag %}
+	      <li><a href="/collections/{{ collection.handle }}/{{ tag | handle }}">{{ tag }}</a></li>
+	      {% elsif collection.all_tags contains tag %}
+	      <li><a href="/collections/{{ collection.handle }}/{{ tag | handle }}">{{ tag }}</a></li>
+	      {% endif %}
+	      {% endfor %}
+	    </ul>
+		</li>
+	  	</ul>
+	  	<li class="divider2"></li>
+	  
+	  
+	  	<label>&nbsp;&nbsp;BRANDS<span style="float:right; padding-right:30px;">+</a></label>
+	  	<ul class="clearfix filters">
+		<li class="clearfix filter">
+			<ul class="nav nav-list tree bullets">	
+				<li><a href="/collections/real-apparel">REAL Apparel</a></li>
+				<li><a href="/collections/antihero-apparel">Antihero Apparel</a></li>
+				<li><a href="/collections/krooked-apparel">Krooked Apparel</a></li>
+				<li><a href="/collections/spitfire-apparel">Spitfire Apparel</a></li>
+				<li><a href="/collections/thunder-apparel">Thunder Apparel</a></li>
+				<li><a href="/collections/venture-apparel">Venture Apparel</a></li>
+			</ul>
+		</li>
+	  	</ul>
+		
+
+{% elsif collection.title == "2019 SPRING DROP 1"   %}
+
+
+	   <hr>
+	    <label>&nbsp;&nbsp;SPRING DROP 1<span style="float:right; padding-right:30px;">+</a></label>
+	    
+	    <ul class="clearfix filters">
+		<li class="clearfix filter">
+			<ul class="nav nav-list tree bullets">	
+			      <li><a href="#Real">REAL</a></li>
+			      <li><a href="#Antihero">Antihero</a></li>
+				  <li><a href="#Krooked">Krooked</a></li>
+				  <li><a href="#Spitfire">Spitfire</a></li>
+				  <li><a href="#Thunder">Thunder</a></li>
+				  <li><a href="#Venture">Venture</a></li>
+			</ul>
+		</li>
+	  	</ul>
+	    
+	    
+
+{% elsif collection.title == "SF HI VIS, SF SLIDES & KR EFFISHANT CAPSULES"   %}
+
+
+	   <hr>
+	    <label><b>SF & KR CAPSULES</b></label>
+	    
+	    <ul class="clearfix filters">
+	      <li class="clearfix filters"><a href="#SFNIVI">&#183; SPITFIRE NIGHT VISION</a></li>
+	      <li class="clearfix filters"><a href="#SFSL">&#183; SPITFIRE SLIDES</a></li>
+	      <li class="clearfix filters"><a href="#KREF">&#183; KROOKED EFFISHANT</a></li>
+	    </ul>
+	    
+
+		
+		
+{% elsif collection.title == "Accessories" or collection.title == "REAL Accessories" or collection.title == "Antihero Accessories" or collection.title == "Spitfire Accessories" or collection.title == "Thunder Accessories" or collection.title == "Krooked Accessories" or collection.title == "Venture Accessories"   %}
+
+
+		<ul class="clearfix filters">
+		<li class="clearfix filter">
+	    {% assign tags = 'Stickers, Bags, DVDs, Lighters, Patches, Pins, Air Fresheners, Misc' | split: ',' %}
+	    <label style="cursor:pointer;" onClick="javascript:changeText(5)" class="tree-toggle-down clearfix filter">&nbsp;&nbsp;TYPE<span id="element5" style="float:right; padding-right:30px;">-</a></label>
+	     <ul class="nav nav-list tree-down bullets">
+	      {% for t in tags %}
+	      {% assign tag = t | strip %}
+	      {% if current_tags contains tag %}
+	      <li><a href="/collections/{{ collection.handle }}/{{ tag | handle }}">{{ tag }}</a></li>
+	      {% elsif collection.all_tags contains tag %}
+	      <li><a href="/collections/{{ collection.handle }}/{{ tag | handle }}">{{ tag }}</a></li>
+	      {% endif %}
+	      {% endfor %}
+	    </ul>
+	  </li>
+	  </ul>
+	  
+	
+	<label>&nbsp;&nbsp;BRANDS<span style="float:right; padding-right:30px;">+</a></label>
+	<ul class="clearfix filters">
+		<li class="clearfix filter">
+			<ul class="nav nav-list tree bullets">
+			<li><a href="/collections/real-accessories">REAL Accessories</a></li>
+			<li><a href="/collections/antihero-accessories">Antihero Accessories</a></li>
+			<li><a href="/collections/krooked-accessories">Krooked Accessories</a></li>
+			<li><a href="/collections/spitfire-accessories">Spitfire Accessories</a></li>
+			<li><a href="/collections/thunder-accessories">Thunder Accessories</a></li>
+			<li><a href="/collections/venture-accessories">Venture Accessories</a></li>
+			</ul>
+		</li>
+	</ul>	
+		
+
+ 
+ <!-- END + CHANGER ON FILTERS -->
+ 
+{% elsif collection.title == "REAL Decks" or collection.title == "REAL" or collection.title == "Krooked Decks" or collection.title == "Krooked Decks - On Hand" or collection.title == "REAL Decks - On Hand" or collection.title == "Antihero Decks - On Hand" or collection.title == "Decks" or collection.title == "REAL Decks" or collection.title == "Antihero Decks" or collection.title == "Trucks" or collection.title == "Thunder Trucks" or collection.title == "Venture Trucks" or collection.title == "Wheels" or collection.title == "Spitfire Wheels" or collection.title == "Krooked Wheels" %}
+	<ul class="clearfix filters">
+	  <li class="clearfix filter">
+	    {% assign tags = "48mm,50mm,51mm,52mm,53mm,54mm,55mm,56mm,57mm,58mm,59mm,60mm,65mm,7.0 - 7.49,7.5 - 7.9,8.0 - 8.124,8.125 - 8.24,8.25 - 8.37,8.38 - 8.49,8.5 - 8.74,8.75 - 8.9,9.0 +,143's - 7.125'', 145's - 7.62'', 147's - 8.0'', 148's - 8.25'', 149's - 8.5'', 151's - 8.75'', Lo 5.0, Hi 5.0, Lo 5.2, Hi 5.2, Hi 5.6, Hi 5.8, Hi 6.1" | split: ',' %}
+	    <label style="cursor:pointer;" onClick="javascript:changeText(1)" class="tree-toggle-down clearfix filter">&nbsp;&nbsp;SIZE<span id="element1" style="float:right; padding-right:30px;">+</a></label>
+	     <ul class="nav nav-list tree-down bullets">
+	      {% for t in tags %}
+	      {% assign tag = t | strip %}
+	      {% if current_tags contains tag %}
+	      <li><a href="/collections/{{ collection.handle }}/{{ tag | handle }}">{{ tag }}</a></li>
+	      {% elsif collection.all_tags contains tag %}
+	      <li><a href="/collections/{{ collection.handle }}/{{ tag | handle }}">{{ tag }}</a></li>
+	      {% endif %}
+	      {% endfor %}
+	    </ul>
+	  </li>
+	  <li class="divider2"></li>
+	  <li class="clearfix filter">
+	    {% assign tags = 'Andrew Allen, Youness Amrani, Tom Asta, Brian Anderson, Mike Anderson, David Bachinsky, Lacey Baker, Caleb Barnett, Theotis Beasley, Raney Beres, Elijah Berle, Brandon Biebel, Justin Brock, Robbie Brockel, Dennis Busenitz, John Cardiel, Chris Cole, Brad Cromer, Jack Curtain, Bobby De Keyzer, Jake Donnelly, Dan Drehobl, Eric Dressen, Erik Ellington, Chima Ferguson, John Fitzgerald, Jamie Foy, Frank Gerwer, Mark Gonzales, Jeff Grosso, Tommy Guerrero, Felipe Gustavo, Spencer Hamilton, James Hardy, Peter Hewitt, Hjalte Halberg, Brian Hansen, Keith Hufnagel, Marc Johnson, Chris Jones, Tyshawn Jones, Cory Kennedy, PJ Ladd, Louie Lopez, Alec Majerus, Sean Malto, Josh Matthews, Trent McClung, Tony Miorana, Lance Mountain, Darren Navarrette, Silas Baxter Neal, Jack Olson, Shane Oneill, Tyshawn Jones, Chris Pfanner, Collin Provost, Torey Pudwill, Peter Ramondetta, Andrew Reynolds, Paul Rodriguez, Oskar Rozenberg, Andy Roy, Robbie Russo, Ronnie Sandoval, Max Schaaf, Miles Silvas, Evan Smith, Na-Kel Smith, Daewon Song, Elissa Steamer, Julien Stranger, Mark Suciu, Kader Sylla, Grant Taylor, Raven Tershy, Davis Torgerson, Tony Trujillo, Daan Van Der Linden, Anthony Van Engelen, Jarne Verbruggen, Nick Tucker, Rodrigo TX, Ishod Wair, Kyle Walker, Sebo Walker, Brandon Westgate, Andrew Wilson, Bobby Worrest, Zion Wright' | split: ',' %}
+	    <label style="cursor:pointer;" onClick="javascript:changeText(2)" class="tree-toggle clearfix filter">&nbsp;&nbsp;PRO<span id="element2" style="float:right; padding-right:30px;">+</a></label>
+	    <ul class="nav nav-list tree bullets">
+	      {% for t in tags %}
+	      {% assign tag = t | strip %}
+	      {% if current_tags contains tag %}
+	      <li><a href="/collections/{{ collection.handle }}/{{ tag | handle }}">{{ tag }}</a></li>
+	      {% elsif collection.all_tags contains tag %}
+	      <li><a href="/collections/{{ collection.handle }}/{{ tag | handle }}">{{ tag }}</a></li>
+	      {% endif %}
+	      {% endfor %}
+	    </ul>
+	  </li>
+	  
+	  <li class="divider2"></li>
+	  <li class="clearfix filter">
+	    {% assign tags = 'V-Titanium Lights, Pro V-Hollow Lights, Team V-Hollow Lights, Pro V-Lights, Team V-Lights, Pro Regulars, Team Regulars, Pro, Team, Specialty Shape, Slicks, Full Shapes, Twin Tails, Price Points, Formula Four Pro, Formula Four Team, Formula Four Colored, Lock-Ins, 80HD Softcruiser, Pro Classic Series, Team Classics, Colored, Bighead, Radials, Radial Slims, Conical Full, Spitfire Wide, Classic Full, Tablets, 101 Duros, 99 Duros, Pro Trucks, Titanium Lights, Team Titaniums, Hollow Lights, Team Hollows, Lights, Team Lights, Team Editions, Night Editions, Polished, Color' | split: ',' %}
+	    <label style="cursor:pointer;" onClick="javascript:changeText(3)" class="tree-toggle clearfix filter">&nbsp;&nbsp;STYLE<span id="element3" style="float:right; padding-right:30px;">+</a></label>
+	    <ul class="nav nav-list tree bullets">
+	      {% for t in tags %}
+	      {% assign tag = t | strip %}
+	      {% if current_tags contains tag %}
+	      <li><a href="/collections/{{ collection.handle }}/{{ tag | handle }}">{{ tag }}</a></li>
+	      {% elsif collection.all_tags contains tag %}
+	      <li><a href="/collections/{{ collection.handle }}/{{ tag | handle }}">{{ tag }}</a></li>
+	      {% endif %}
+	      {% endfor %}
+	    </ul>
+	  </li>
+
+	 </ul>
+	 
+{% elsif collection.title == "Hardware" or collection.title == "Bearings" or collection.title == "Bolts" or collection.title == "Bushings" or collection.title == "Griptape" or collection.title == "Misc Hardware" or collection.title == "Risers" or collection.title == "Skate Tools" or collection.title == "Wax" %}
+
+		<ul class="clearfix filters">
+		<li class="clearfix filters"><a href="/collections/bearings">Bearings</a></li>
+		<li class="clearfix filters"><a href="/collections/bolts">Bolts</a></li>
+		<li class="clearfix filters"><a href="/collections/bushings">Bushings</a></li>
+		<li class="clearfix filters"><a href="/collections/griptape">Griptape</a></li>
+		<li class="clearfix filters"><a href="/collections/misc-hardware">Misc Hardware</a></li>
+		<li class="clearfix filters"><a href="/collections/risers">Risers</a></li>
+		<li class="clearfix filters"><a href="/collections/skate-tools">Skate Tools</a></li>
+		<li class="clearfix filters"><a href="/collections/wax">Wax</a></li>
+		</ul>
+ 
+	  
+{% elsif product.type == "Decks" and product.vendor == "Real" %}
+		<ul class="clearfix filters">
+		<li class="clearfix filter">
+			<label style="cursor:pointer;" class="clearfix filter">&nbsp;&nbsp;SIZES<span style="float:right; padding-right:30px;">+</a></label>
+			<ul class="nav nav-list tree bullets">
+				<li><a href="/collections/real-decks/7-0-7-49">7.0 - 7.49</a></li>
+				<li><a href="/collections/real-decks/7-5-7-9">7.5 - 7.9</a></li>
+				<li><a href="/collections/real-decks/8-0-8-124">8.0 - 8.124</a></li>
+				<li><a href="/collections/real-decks/8-125-8-24">8.125 - 8.24</a></li>
+				<li><a href="/collections/real-decks/8-25-8-37">8.25 - 8.37</a></li>
+				<li><a href="/collections/real-decks/8-38-8-49">8.38 - 8.49</a></li>
+				<li><a href="/collections/real-decks/8-5-8-74">8.5 - 8.74</a></li>
+				<li><a href="/collections/real-decks/8-75-8-9">8.75 - 8.9</a></li>
+				<li><a href="/collections/real-decks/9-0">9.0 +</a></li>
+			</ul>
+		</li>
+		</ul>
+
+
+
+		
+{% elsif product.type == "Decks" and product.vendor == "Antihero" %}
+		<ul class="clearfix filters">
+		<li class="clearfix filter">
+			<label style="cursor:pointer;" class="clearfix filter">&nbsp;&nbsp;SIZES<span style="float:right; padding-right:30px;">+</a></label>
+			<ul class="nav nav-list tree bullets">
+				<li><a href="/collections/antihero-decks/7-0-7-49">7.0 - 7.49</a></li>
+				<li><a href="/collections/antihero-decks/7-5-7-9">7.5 - 7.9</a></li>
+				<li><a href="/collections/antihero-decks/8-0-8-124">8.0 - 8.124</a></li>
+				<li><a href="/collections/antihero-decks/8-125-8-24">8.125 - 8.24</a></li>
+				<li><a href="/collections/antihero-decks/8-25-8-37">8.25 - 8.37</a></li>
+				<li><a href="/collections/antihero-decks/8-38-8-49">8.38 - 8.49</a></li>
+				<li><a href="/collections/antihero-decks/8-5-8-74">8.5 - 8.74</a></li>
+				<li><a href="/collections/antihero-decks/8-75-8-9">8.75 - 8.9</a></li>
+				<li><a href="/collections/antihero-decks/9-0">9.0 +</a></li>
+			</ul>
+		</li>
+		</ul>
+
+
+		
+{% elsif product.type == "Decks" and product.vendor == "Krooked" %}
+		<ul class="clearfix filters">
+		<li class="clearfix filter">
+			<label style="cursor:pointer;" class="clearfix filter">&nbsp;&nbsp;SIZES<span style="float:right; padding-right:30px;">+</a></label>
+			<ul class="nav nav-list tree bullets">
+				<li><a href="/collections/krooked-decks/7-0-7-49">7.0 - 7.49</a></li>
+				<li><a href="/collections/krooked-decks/7-5-7-9">7.5 - 7.9</a></li>
+				<li><a href="/collections/krooked-decks/8-0-8-124">8.0 - 8.124</a></li>
+				<li><a href="/collections/krooked-decks/8-125-8-24">8.125 - 8.24</a></li>
+				<li><a href="/collections/krooked-decks/8-25-8-37">8.25 - 8.37</a></li>
+				<li><a href="/collections/krooked-decks/8-38-8-49">8.38 - 8.49</a></li>
+				<li><a href="/collections/krooked-decks/8-5-8-74">8.5 - 8.74</a></li>
+				<li><a href="/collections/krooked-decks/8-75-8-9">8.75 - 8.9</a></li>
+				<li><a href="/collections/krooked-decks/9-0">9.0 +</a></li>
+			</ul>
+		</li>
+		</ul>
+
+
+
+
+{% elsif product.type == "Wheels" and product.vendor == "Spitfire" %}
+		<ul class="clearfix filters">
+		<li class="clearfix filter">
+			<label style="cursor:pointer;" class="clearfix filter">&nbsp;&nbsp;SIZES<span style="float:right; padding-right:30px;">+</a></label>
+			<ul class="nav nav-list tree bullets">
+				<li><a href="/collections/spitfire-wheels/48mm">48mm</a></li>
+				<li><a href="/collections/spitfire-wheels/50mm">50mm</a></li>
+				<li><a href="/collections/spitfire-wheels/51mm">51mm</a></li>
+				<li><a href="/collections/spitfire-wheels/52mm">52mm</a></li>
+				<li><a href="/collections/spitfire-wheels/53mm">53mm</a></li>
+				<li><a href="/collections/spitfire-wheels/54mm">54mm</a></li>
+				<li><a href="/collections/spitfire-wheels/55mm">55mm</a></li>
+				<li><a href="/collections/spitfire-wheels/56mm">56mm</a></li>
+				<li><a href="/collections/spitfire-wheels/58mm">58mm</a></li>
+				<li><a href="/collections/spitfire-wheels/60mm">60mm</a></li>
+			</ul>
+		</li>
+		</ul>
+		
+		<ul class="clearfix filters">
+		<li class="clearfix filter">
+			<label style="cursor:pointer;" class="clearfix filter">&nbsp;&nbsp;STYLES<span style="float:right; padding-right:30px;">+</a></label>
+			<ul class="nav nav-list tree bullets">
+				<li><a href="/collections/spitfire-wheels/formula-four-pro">Formula Four Pro</a></li>
+				<li><a href="/collections/spitfire-wheels/formula-four-team">Formula Four Team</a></li>
+				<li><a href="/collections/spitfire-wheels/formula-four-colored">Formula Four Colored</a></li>
+				<li><a href="/collections/spitfire-wheels/lock-ins">Lock-Ins</a></li>
+				<li><a href="/collections/spitfire-wheels/80hd-softcruiser">80HD Softcruiser</a></li>
+				<li><a href="/collections/spitfire-wheels/pro-classic-series">Pro Classic Series</a></li>
+				<li><a href="/collections/spitfire-wheels/team-classics">Team Classics</a></li>
+				<li><a href="/collections/spitfire-wheels/colored">Colored</a></li>
+			</ul>
+		</li>
+		</ul>
+
+{% elsif product.type == "Trucks" and product.vendor == "Thunder" %}
+		<ul class="clearfix filters">
+		<li class="clearfix filter">
+			<label style="cursor:pointer;" class="clearfix filter">&nbsp;&nbsp;SIZES<span style="float:right; padding-right:30px;">+</a></label>
+			<ul class="nav nav-list tree bullets">
+				<li><a href="/collections/thunder-trucks/143s-7-125">143's - 7.125''</a></li>
+				<li><a href="/collections/thunder-trucks/145s-7-62">145's - 7.62''</a></li>
+				<li><a href="/collections/thunder-trucks/147s-8-0">147's - 8.0''</a></li>
+				<li><a href="/collections/thunder-trucks/148s-8-25">148's - 8.25''</a></li>
+				<li><a href="/collections/thunder-trucks/149s-8-5">149's - 8.5''</a></li>
+				<li><a href="/collections/thunder-trucks/151s-8-75">151's - 8.75''</a></li>
+			</ul>
+		</li>
+		</ul>
+		
+		<ul class="clearfix filters">
+		<li class="clearfix filter">
+			<label style="cursor:pointer;" class="clearfix filter">&nbsp;&nbsp;STYLES<span style="float:right; padding-right:30px;">+</a></label>
+			<ul class="nav nav-list tree bullets">
+				<li><a href="/collections/thunder-trucks/pro-trucks">Pro Trucks</a></li>
+				<li><a href="/collections/thunder-trucks/titanium-lights">Titanium Lights</a></li>
+				<li><a href="/collections/thunder-trucks/team-titaniums">Team Titaniums</a></li>
+				<li><a href="/collections/thunder-trucks/hollow-lights">Hollow Lights</a></li>
+				<li><a href="/collections/thunder-trucks/team-hollows">Team Hollows</a></li>
+				<li><a href="/collections/thunder-trucks/lights">Lights</a></li>
+				<li><a href="/collections/thunder-trucks/team-lights">Team Lights</a></li>
+				<li><a href="/collections/thunder-trucks/team-editions">Team Editions</a></li>
+				<li><a href="/collections/thunder-trucks/polished">Polished</a></li>
+				<li><a href="/collections/thunder-trucks/color">Color</a></li>
+			</ul>
+		</li>
+		</ul>
+	  
+{% endif %}
+</div>
+
+	<!-- START BOOTSTRAP MENU -->
+<script src="https://production-assets.codepen.io/assets/common/stopExecutionOnTimeout-58d22c749295bca52f487966e382a94a495ac103faca9206cbd160bdf8aedf2a.js"></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+
+    <script>
+	// START MENU STARTS UP
+    $('.tree-toggle').click(function () {
+    $(this).parent().children('ul.tree').toggle(200);
+	});
+	
+	$(function () {
+    $('.tree-toggle').parent().children('ul.tree').toggle(200);
+	});
+	// END MENU STARTS UP
+	
+	// START MENU STARTS DOWN
+    $('.tree-toggle-down').parent().children('ul.tree-down').toggle(200);
+    $('.tree-toggle-down').click(function () {
+    $(this).parent().children('ul.tree-down').toggle(200);
+	});
+	
+	$(function () {
+    $('.tree-toggle-down').parent().children('ul.tree-down').toggle(200);
+	});
+	// END MENU STARTS DOWN
+  </script>
+<!-- END BOOTSTRAP MENU -->
+
+
+<li class="divider2"></li>
+
+<!-- START BRANDS -->
+<label>&nbsp;&nbsp;BRANDS<span style="float:right; padding-right:30px;">+</a></label>
+	<ul class="clearfix filters">
+		<li class="clearfix filter">
+			<ul class="nav nav-list tree bullets">
+			<li><a href="/collections/real-decks">REAL</a></li>
+			<li><a href="/collections/antihero-decks">Antihero</a></li>
+			<li><a href="/collections/krooked-decks">Krooked</a></li>
+			<li><a href="/collections/spitfire-wheels">Spitfire</a></li>
+			<li><a href="/collections/thunder-trucks">Thunder</a></li>
+			<li><a href="/collections/venture-trucks">Venture</a></li>
+			</ul>
+		</li>
+	</ul>
+	
+
+<!-- END BRANDS -->
+
+
+<script>
+  /* Product Tag Filters - Good for any number of filters on any type of collection page.
+     Give you product tag filter select element a class of coll-filter.
+     Give your collection select a class of coll-picker.
+     Brought to you by Caroline Schnapp. */
+  Shopify.queryParams = {};
+  if (location.search.length) {
+    for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+      aKeyValue = aCouples[i].split('=');
+      if (aKeyValue.length > 1) {
+        Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+      }
+    }
+  }
+  jQuery('.coll-picker').change(function() {
+    if (jQuery(this).val()) {
+      location.href = '/collections/' + jQuery(this).val();
+    }
+    else {
+      location.href = '/collections/all';
+    }
+  });
+  var collFilters = jQuery('.coll-filter');
+  collFilters.change(function() {
+    delete Shopify.queryParams.page;
+    var newTags = [];
+    collFilters.each(function() {
+      if (jQuery(this).val()) {
+        newTags.push(jQuery(this).val());
+      }
+    });
+    {% if collection.handle %}
+    var newURL = '/collections/{{ collection.handle }}';
+    if (newTags.length) {
+      newURL += '/' + newTags.join('+');
+    }
+    var search = jQuery.param(Shopify.queryParams);
+    if (search.length) {
+      newURL += '?' + search;
+    }
+    location.href = newURL;
+    {% else %}
+    if (newTags.length) {
+      Shopify.queryParams.constraint = newTags.join('+');
+    }
+    else {
+      delete Shopify.queryParams.constraint;
+    }
+    location.search = jQuery.param(Shopify.queryParams);
+    {% endif %}
+  });
+</script>
+
+        </div>
+    </div>
+
+<!-- END DROPDOWNS -->
+
+

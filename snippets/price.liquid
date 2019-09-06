@@ -1,0 +1,35 @@
+{% assign formatted_price = price | money %}
+{% assign formatted_price_min = product.price_min | money %}
+{% assign formatted_price_max = product.price_max | money %}
+
+{% if settings.remove_dollar_symbol %}
+  {% assign formatted_price = formatted_price | remove: '$' %}
+  {% assign formatted_price_min = formatted_price_min | remove: '$' %}
+  {% assign formatted_price_max = formatted_price_max | remove: '$' %}
+{% endif %}
+
+{% comment %}
+  Unless this store uses multiple currencies,
+  if we apply a special style to cents,
+  we will wrap them in a sup (superscript) element.
+{% endcomment %}
+
+{% unless shop.money_format contains 'money' %}
+  {% if settings.superscript_decimals %}
+    {% if shop.money_format contains '{{amount}}' %}
+      {% capture formatted_price %}{{ formatted_price | replace: '.','<sup>' }}</sup>{% endcapture %}
+      {% capture formatted_price_min %}{{ formatted_price_min | replace: '.','<sup>' }}</sup>{% endcapture %}
+      {% capture formatted_price_max %}{{ formatted_price_max | replace: '.','<sup>' }}</sup>{% endcapture %}
+    {% elsif shop.money_format contains '{{amount_with_comma_separator}}' %}
+      {% capture formatted_price %}{{ formatted_price | replace: ',','<sup>' }}</sup>{% endcapture %}
+      {% capture formatted_price_min %}{{ formatted_price_min | replace: ',','<sup>' }}</sup>{% endcapture %}
+      {% capture formatted_price_max %}{{ formatted_price_max | replace: ',','<sup>' }}</sup>{% endcapture %}
+    {% endif %}
+  {% endif %}
+{% endunless %}
+
+<font color="#323131">{% if product.price_max > price %}
+        {{ formatted_price_min }} - {{ formatted_price_max }}
+        {% else %}
+        {{ formatted_price }}
+        {% endif %}</font>

@@ -1,0 +1,60 @@
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+// Including jQuery conditionnally.
+if (typeof jQuery === 'undefined') {
+    document.write({{ "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" | script_tag | json }});
+	document.write('<script type="text/javascript">jQuery.noConflict();<\/script>');
+}
+//]]>
+</script>
+
+<script>
+{% assign linklist = linklists['order-form'] %}
+var length = {{ linklist.links.size }};
+
+$(document).ready(function () {
+	$("#quantity-0").focus();    
+	$("#submit-table").click(function(e) {     
+		e.preventDefault();
+		//array for Variant Titles
+		var toAdd = new Array();
+        var qty ;
+		for(i=0; i < length; i++){
+        
+			toAdd.push({
+				variant_id: $("#variant-"+i).val(),        
+				quantity_id: $("#quantity-"+i).val() || 0
+			});
+		}
+		function moveAlong(){
+			if (toAdd.length) {
+				var request = toAdd.shift();
+				var tempId= request.variant_id;
+				var tempQty = request.quantity_id;
+				var params = {
+					type: 'POST',
+					url: '/cart/add.js',
+					data: 'quantity='+tempQty+'&id='+tempId,
+					dataType: 'json',
+					success: function(line_item) { 
+						//console.log("success!");
+						moveAlong();
+
+					},
+					error: function() {
+						//console.log("fail");
+						moveAlong();
+						
+					}
+				};
+				$.ajax(params);
+			}
+			else {				
+				document.location.href = '/cart';
+			}  
+		};
+		moveAlong();
+	});
+});
+
+</script>

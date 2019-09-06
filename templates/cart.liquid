@@ -1,0 +1,489 @@
+<!-- START POP-UP SCRIPT -->
+<script src="jquery-1.11.3.min.js"></script>
+<script src="https://cdn.shopify.com/s/files/1/0714/9533/files/jquery.products.js?13681634010905030235"></script>
+
+<div id="popup-container">
+  <a class="close">x</a>
+    <div id="popup-window">
+      <div class="splash-bg">
+         <script type="text/javascript">
+var total_images = 2;
+var random_number = Math.floor((Math.random()*total_images));
+var random_img = new Array();
+random_img[0] = '<a href="/products/skateism-magazine-6-pack"><img src="https://cdn.shopify.com/s/files/1/0714/9533/files/DLX-SKATEISM-RELEASE-ASSETS-500x500-B2B-SQUARE-01.jpg?2242"></a>';
+random_img[1] = '<a href="/products/skateism-magazine-6-pack"><img src="https://cdn.shopify.com/s/files/1/0714/9533/files/DLX-SKATEISM-RELEASE-ASSETS-500x500-B2B-SQUARE-01.jpg?2242"></a>'; 
+document.write(random_img[random_number]);
+--></script></div>
+  </div>
+</div>
+
+
+<style>
+/* Fullscreen overlay for modal background */
+#active-popup {
+  background-color: rgba(52,73,94, 0.7);
+  position: absolute;
+  width: 100%;
+  heighT: 100% !important;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+/* Modal container */
+#popup-container {
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -250px;
+  position: fixed;
+  z-index: 999;
+  display: none;
+  background:-webkit-linear-gradient(rgba(0,0,0,0) 0%, #ffffff 100%);
+}
+
+.modal-content {
+  position: relative;
+  text-align: center;
+}
+
+#popup-window { position: relative; }
+
+.modal-content h1,
+.modal-content p { color: #fff; }
+
+.modal-content p { padding: 20% 5% 0 5%; }
+
+/* Close button */
+#popup-container a.close {
+  position: relative;
+  float: right;
+  top: -15px;
+  right: -7px;
+  z-index: 99;
+  font-weight: bold;
+  font-size: 16px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  padding: 2px 5px 2px 6px;
+  line-height: 1em;
+  text-align: center;
+  background: #d8d8d8;
+  border: 1px solid #fff;
+  cursor: pointer;
+  color:#676767;
+}
+</style>
+<script>
+jQuery(document).ready(function(){  
+  jQuery('#popup-container a.close').click(function(){
+      jQuery('#popup-container').fadeOut();
+      jQuery('#active-popup').fadeOut();
+  });
+  
+  var visits = jQuery.cookie('visits') || 0;
+  visits++;
+  
+  jQuery.cookie('visits', visits, { expires: 10, path: '/' });
+    
+  console.debug(jQuery.cookie('visits'));
+    
+  if ( jQuery.cookie('visits') > 1 ) {
+    jQuery('#active-popup').hide();
+    jQuery('#popup-container').hide();
+  } else {
+      var pageHeight = jQuery(document).height();
+      jQuery('<div id="active-popup"></div>').insertBefore('body');
+      jQuery('#active-popup').css("height", pageHeight);
+      jQuery('#popup-container').show();
+  }
+
+  if (jQuery.cookie('noShowWelcome') || $(window).width() < 960) { jQuery('#popup-container').hide(); jQuery('#active-popup').hide(); }
+}); 
+
+jQuery(document).mouseup(function(e){
+  var container = jQuery('#popup-container');
+  
+  if( !container.is(e.target)&& container.has(e.target).length === 0)
+  {
+    container.fadeOut();
+    jQuery('#active-popup').fadeOut();
+  }
+
+});
+</script>
+<!-- END POP-UP SCRIPT -->
+
+<style>
+	img.Image { max-width: 40px;}
+</style>	
+
+<!-- START ARE YOU SURE CLEAR CART -->	
+
+<script type="text/javascript">
+function confirm_click()
+{
+return confirm("Are you sure you want to clear your cart?");
+}
+
+</script>
+
+<!-- END ARE YOU SURE CLEAR CART -->
+
+<!-- START MIXING PRE-BOOK WITH AT-ONCE ALERT -->
+
+
+{% assign pre_book = '0' %}
+{% assign pre_book2 = '0' %}
+{% assign pre_book3 = '0' %}
+{% assign pre_book4 = '0' %}
+{% assign at_once = '0' %}
+
+
+{% for item in cart.items %}
+
+  {% if item.product.tags contains 'Prebook' %}{% assign pre_book = '1' %}{% endif %}
+  {% if item.product.tags contains 'Prebook2' %}{% assign pre_book2 = '1' %}{% endif %}
+  {% if item.product.tags contains 'Prebook3' %}{% assign pre_book3 = '1' %}{% endif %}
+  {% if item.product.tags contains 'Prebook4' %}{% assign pre_book4 = '1' %}{% endif %}
+  {% if item.product.tags contains 'Atonce' %}{% assign at_once = '1' %}{% endif %}
+
+{% endfor %}
+
+
+<!-- END MIXING PRE-BOOK WITH AT-ONCE ALERT -->
+
+<!-- START PREBOOK AMOUNT CHECK -->
+          
+    {% assign prebook_total = pre_book | plus: pre_book2 | plus: pre_book3 | plus: pre_book4 %}
+    
+          
+<!-- END PREBOOK AMOUNT CHECK -->
+
+
+	{% if cart.item_count > 0 %}
+  <form action="/cart" method="post" novalidate>
+
+    <h1 class="h2">{{ 'cart.general.title' | t }}</h1>
+    
+     
+{% for item in cart.items %}
+    {% unless item.product.tags contains 'Onsale' or item.product.tags contains 'Price Points' %}{% if item.product.type == "Decks" %}       
+         {% capture temp %}{{ num | plus: item.quantity }}{% endcapture %}
+         {% endif %} 
+    {% endunless %}
+    {% assign num = temp %}
+{% endfor %}
+ 
+{% for item in cart.items %}   
+    {% if item.product.type == "Trucks" %}       
+         {% capture temp2 %}{{ num_trucks | plus: item.quantity }}{% endcapture %} 
+    {% endif %}
+    {% assign num_trucks = temp2 %}
+{% endfor %}
+
+{% for item in cart.items %}   
+    {% unless item.product.tags contains 'Onsale' %}
+    {% if item.product.type == "Wheels" %}       
+         {% capture temp3 %}{{ num_wheels | plus: item.quantity }}{% endcapture %} 
+    {% endif %}
+    {% endunless %}
+    {% assign num_wheels = temp3 %}
+{% endfor %}
+
+{% for item in cart.items %}
+    {% if item.product.tags contains 'Onsale' and item.product.type == "Decks" %}       
+         {% capture temp4 %}{{ num_sale | plus: item.quantity }}{% endcapture %} 
+    {% endif %}
+    {% assign num_sale = temp4 %}
+{% endfor %}
+
+{% for item in cart.items %}
+    {% if item.product.tags contains 'Onsale' and item.product.type == "Wheels" %}       
+         {% capture temp10 %}{{ num_sale_wheels | plus: item.quantity }}{% endcapture %} 
+    {% endif %}
+    {% assign num_sale_wheels = temp10 %}
+{% endfor %}
+
+{% for item in cart.items %}
+    {% if item.product.tags contains 'Price Points' and item.product.type == "Decks" %}       
+         {% capture temp5 %}{{ num_pricepoint | plus: item.quantity }}{% endcapture %} 
+    {% endif %}
+    {% assign num_pricepoint = temp5 %}
+{% endfor %}
+
+{% for item in cart.items %}
+	{% assign prefix = item.sku | truncate: 1, '' %}
+	{% if prefix == '6' or prefix == '7' or prefix == '8' %}
+		{% capture temp9 %}{{ num_acc | plus: item.quantity }}{% endcapture %}
+    {% endif %}
+    {% assign num_acc = temp9 %}
+{% endfor %}
+
+{% for item in cart.items %}
+    {% if item.product.type == "Apparel" %}       
+         {% capture temp7 %}{{ num_apparel | plus: item.quantity }}{% endcapture %} 
+    {% endif %}
+    {% assign num_apparel = temp7 %}
+{% endfor %}
+
+{% for item in cart.items %}
+    {% if item.product.type == "Prebook" %}       
+         {% capture temp8 %}{{ num_prebook | plus: item.quantity }}{% endcapture %} 
+    {% endif %}
+    {% assign num_prebook = temp8 %}
+{% endfor %}
+
+<!-- START LIMIT ON SPECIAL PRODUCT -->
+{% assign limit_item = '0' %}
+{% for item in cart.items %}
+    {% if item.product.tags contains 'Limit' %}       
+         {% capture temp6 %}{{ limit_item | plus: item.quantity }}{% endcapture %} 
+    {% endif %}
+    {% assign limit_item = temp6 %}
+{% endfor %}
+
+{% assign limit_item_amount = '1' %}
+{% assign checkout_limit_item = '0' %}
+
+{% if limit_item > limit_item_amount %}
+	{% assign checkout_limit_item = '1' %}
+{% endif %}
+<!-- END LIMIT ON SPECIAL PRODUCT -->
+
+{% if num > '0' %}  
+# Reg Decks: {{ num }}
+{% endif %}
+{% if num_pricepoint > '0' %} 
+<br># Pricepoint Decks: {{ num_pricepoint }}
+{% endif %}
+{% if num_sale > '0' %} 
+<br># Sale Decks: {{ num_sale }}
+{% endif %}
+{% if num_sale_wheels > '0' %} 
+<br># Sale Wheel Sets: {{ num_sale_wheels }}
+{% endif %}
+{% if num_trucks > '0' %} 
+<br># Truck Sets: {{ num_trucks | divided_by: 2 }}
+{% endif %}
+{% if num_wheels > '0' %} 
+<br># Wheel Sets: {{ num_wheels }}
+{% endif %}
+
+{% if num_apparel > '0' %} 
+<br># Apparel: {{ num_apparel }}
+{% endif %}
+{% if num_acc > '0' %} 
+<br># Accessories: {{ num_acc }}
+{% endif %}
+{% if num_prebook > '0' %} 
+<br># of Prebook: {{ num_prebook }}
+{% endif %}
+
+<br>--
+<br>Total: {{ cart.item_count }} {{ cart.item_count | pluralize: 'Item', 'Items' }} ({{ cart.total_price | money }})
+<br><br>Note: Price Point & Sale decks don't count towards quantity discounts. 
+<br><a href="/cart/clear" onclick="return confirm_click();"><font color="red"><u>clear cart</u></font></a> | <a href="#notes"><u>add po# & notes</u></a>
+
+{% if at_once > '0' and pre_book > '0' or pre_book2 > '0' or pre_book3 > '0' or pre_book4 > '0' %}
+<br><br>
+<h1 class="section-header--title section-header--left"><font color="red">PLEASE NOTE</font>: Customers can not mix Pre-Book and At-Once items in the same order. Order At-Once items and Pre-Book items separately. <br><br>Please adjust your cart to check-out. Thank you!</h1>
+{% endif %}
+
+{% if prebook_total > 1 %}
+<br><br>
+<h1 class="section-header--title section-header--left"><font color="red">ERROR</font>: Customers can not mix 2 different Pre-Book orders in the same order. Please only order from one Pre-Book per order. Thank you!</h1>
+{% endif %}
+
+{% if limit_item > limit_item_amount %}
+<br><br>
+<h1 class="section-header--title section-header--left"><font color="red">PLEASE NOTE</font>: The Krooked Guest board is a one per customer order item. 
+	<br>Please adjust QTY to 1.</h1>
+{% endif %}
+
+<div class="grid-item text-right">
+          <input type="submit" name="update" class="btn-secondary update-cart" value="{{ 'cart.general.update' | t }}">
+
+          <!-- START CHECK OUT TEST -->
+          	
+          
+          {% if prebook_total > 1 %}
+          	{% assign checkout_button = 'fail' %}
+          {% endif %}
+          
+          {% if at_once > '0' and pre_book > '0' or pre_book2 > '0' or pre_book3 > '0' or pre_book4 > '0' %}
+          	{% assign checkout_button = 'fail' %}
+          {% endif %}
+          
+          <!-- END CHECK OUT TEST -->
+          
+          {% if checkout_button != 'fail' %}
+          <button style="background: #FF0000;" type="submit" name="checkout" class="btn">
+            <span class="icon icon-cart"></span>
+            {{ 'cart.general.checkout' | t }}
+          </button>
+          {% endif %}
+</div>
+
+<br><br>
+        
+        
+    {% for item in cart.items %}
+    <div class="cart-row" data-id="{{ item.id }}">
+      <div class="grid">
+
+        <div class="grid-item large--seven-twelfths">
+          <div class="grid">
+
+            <div class="grid-item one-third large--one-quarter">
+              <a href="{{ item.url }}" class="cart-image">
+                <img {% if item.product.type == "Decks" or item.product.type == "Complete" or item.product.tags contains 'Completes' or item.product.tags contains 'Decks' %} class="Image" {% endif %}src="{{ item | img_url: 'medium' }}"  alt="{{ item.title | escape }}">
+              </a>
+            </div>
+
+            <div class="grid-item two-thirds large--three-quarters">
+              <a href="{{ item.url }}">
+                {{ item.product.title }} {% if checkout_button == 'fail' %}{% if item.product.tags contains 'Atonce' %} <font color="blue">*AT-ONCE</font> {% endif %}{% if item.product.tags contains 'Prebook' %} <font color="red">*prebook</font> {% endif %}{% if item.product.tags contains 'Prebook2' %} <font color="red">*prebook 2</font> {% endif %}{% if item.product.tags contains 'Prebook3' %} <font color="red">*prebook 3</font> {% endif %}{% if item.product.tags contains 'Prebook4' %} <font color="red">*prebook 4</font> {% endif %}{% endif %}{% if checkout_limit_item == '1' %}{% if item.product.tags contains 'Limit' %} <font color="red">*limit</font> {% endif %}{% endif %}
+              </a>
+              
+                <br>
+                <small>{% unless item.variant.title contains 'Default' %}{{ item.variant.title }}<br>{% endunless %}Part ID: {{ item.variant.sku }}</small>
+                {% unless item.product.tags contains 'nbo' %}
+	                {% if item.variant.inventory_quantity <= 0 and item.product.tags contains 'Atonce' %}
+	                <br><small><font color="red">Item on back order</font></small>
+	                {% endif %}
+                {% endunless %}
+                
+                {% include 'season-new' %}
+              
+
+              {% if item.properties.size > 0 %}
+              <p>
+                {% for p in item.properties %}
+                  {% unless p.last == blank %}
+                    {{ p.first }}:
+
+                    {% if p.last contains '/uploads/' %}
+                      <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                    {% else %}
+                      {{ p.last }}
+                    {% endif %}
+
+                    <br>
+                  {% endunless %}
+                {% endfor %}
+              </p>
+              {% endif %}
+            </div>
+
+          </div>
+        </div>
+
+        <div class="grid-item large--five-twelfths medium--two-thirds push--medium--one-third">
+          <div class="grid">
+
+            <div class="grid-item one-half medium-down--one-third text-right">
+              <input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0" data-id="{{ item.id }}">
+            </div>
+
+            <div class="grid-item one-third medium-down--one-third medium-down--text-left text-right">
+              <span class="h2">
+                {% include 'price' with item.price %}
+              </span>
+            </div>
+
+            <div class="grid-item one-sixth medium-down--one-third text-right">
+              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" data-id="{{ item.id }}" class="icon-fallback-text btn-secondary remove">
+                <span class="icon icon-x" aria-hidden="true"></span>
+                <span class="fallback-text">{{ 'cart.general.remove' | t }}</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    {% endfor %}
+
+    <div class="cart-row">
+      <div class="grid">
+<a name="notes"></a>
+        {% if settings.cart_notes_enable %}
+          <div class="grid-item large--one-half">
+	        <p class="cart-attribute__field">
+			  <label for="po">PO#</label>
+			  <input id="po" type="text" name="attributes[PO#]" value="{{ cart.attributes["PO#"] }}">
+			</p>
+            <label for="cartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
+            <textarea name="note" class="input-full" id="cartSpecialInstructions">{{ cart.note }}</textarea>
+          </div>
+        {% endif %}
+
+        <div class="grid-item text-right {% if settings.cart_notes_enable %}large--one-half{% endif %}">
+
+          <div class="cart-subtotal">
+            {{ 'cart.general.subtotal' | t }}
+            <span class="h1 cart-subtotal--price">
+              {% include 'price' with cart.total_price %}
+            </span>
+          </div>
+
+          <input type="submit" name="update" class="btn-secondary update-cart" value="{{ 'cart.general.update' | t }}">
+
+          {% if checkout_button != 'fail' %}
+          <button style="background: #FF0000;" type="submit" name="checkout" class="btn">
+            <span class="icon icon-cart"></span>
+            {{ 'cart.general.checkout' | t }}
+          </button>
+          {% endif %}
+
+          {% if additional_checkout_buttons %}
+            <p>{{ content_for_additional_checkout_buttons }}</p>
+          {% endif %}
+
+        </div>
+
+      </div>
+    </div>
+
+  </form>
+
+{% else %}
+
+  <h2>{{ 'cart.general.empty' | t }}</h2>
+  <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
+
+{% endif %}
+
+<!-- START GOOGLE ADS -->
+
+<!-- Global site tag (gtag.js) - AdWords. Created by FeedArmy.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1005054919"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'AW-1005054919');
+</script>
+<script>
+gtag('event', 'page_view', {
+'send_to': 'AW-1005054919',
+	'ecomm_pagetype': 'cart',
+	{% if cart.item_count > 1 %}
+	'ecomm_prodid': [{% for item in cart.items %}'shopify_US_{{ item.product_id }}_{{ item.variant_id }}',{% endfor %}],
+	{% else %}
+	'ecomm_prodid': [{% for item in cart.items %}'shopify_US_{{ item.product_id }}_{{ item.variant_id }}'{% endfor %}],
+	{% endif %}
+	'ecomm_totalvalue': {{ cart.total_price | money_without_currency | remove:',' }}
+});
+</script>
+
+<!-- END GOOGLE ADS -->
+

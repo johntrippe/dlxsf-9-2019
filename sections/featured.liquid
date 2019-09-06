@@ -1,0 +1,266 @@
+
+
+<div class="grid-item" style="padding: 0px;">
+	{% if section.settings.promo1link != blank %}
+	<div class="grid-item large--one-whole" style="padding: 10px; padding-top:0px;">
+		<!-- START VIDEO -->
+		<a href="{{ section.settings.promo1link }}"><img src="{{ section.settings.promo1 | img_url: '1000x500' }}" border="0"></a>
+		<!-- END VIDEO -->
+	</div>
+	{% endif %}
+	{% if section.settings.promo1video == true %}
+	<div class="grid-item large--one-whole" style="padding: 10px; padding-top:0px;">
+		{{ section.settings.promo1videolink }}
+	</div>
+	{% endif %}
+</div>
+
+<div class="grid-item" style="padding: 0px; display: flex; flex-wrap: wrap;">
+	
+	<!-- START TEXT SECTION -->
+	
+		<div class="grid-item large--one-half" style="padding: 10px;">
+			<div style="padding: 10px; {% if section.settings.text1bgimage != blank %}background: url({{ section.settings.text1bgimage | img_url: '1000x1000' }});{% endif %}{% if section.settings.text1bgcolor != blank %}background-color: {{ section.settings.text1bgcolor }};{% endif %} height: 100%;"><h2>{{ section.settings.text1header }}:</h2>{{ section.settings.text1text }}{% if section.settings.text1linkurl != blank %} 
+<br><br><a href="{{ section.settings.text1linkurl }}"><font color="red"><b>{{ section.settings.text1linktext }}</b></font></a>{% endif %}<br><br>
+			</div>
+		</div>
+
+		<div class="grid-item large--one-half" style="padding: 10px;">
+			<div style="padding: 10px; {% if section.settings.text2bgcolor != blank %}background-color: {{ section.settings.text2bgcolor }};{% endif %} height: 100%; {% if section.settings.text2bgimage != blank %}background: url({{ section.settings.text2bgimage | img_url: '1000x1000' }});{% endif %}"><h2>{{ section.settings.text2header }}:</h2><h2>{{ section.settings.text2text }}</h2><br><br>
+			</div>
+		</div>
+		
+	<!-- END TEXT SECTION -->
+	
+	<!-- START 2 SECTION -->
+	
+		<div class="grid-item large--one-half" style="padding: 10px;"><a href="{{ section.settings.promo2link }}"><img loading="lazy" border="0" src="{{ section.settings.promo2 | img_url: '500x500' }}"></a></div>
+		
+		<div class="grid-item large--one-half" style="padding: 10px;"><a href="{{ section.settings.promo3link }}"><img loading="lazy" border="0" src="{{ section.settings.promo3 | img_url: '500x500' }}"></a></div>
+		
+	<!-- END 2 SECTION -->
+	
+	<!-- START 3 SECTION -->
+	
+		<div class="grid-item large--one-half" style="padding: 10px;"><a href="{{ section.settings.promo4link }}"><img loading="lazy" border="0" src="{{ section.settings.promo4 | img_url: '500x500' }}"></a></div>
+		
+		<div class="grid-item large--one-half" style="padding: 10px;"><a href="{{ section.settings.promo5link }}"><img loading="lazy" border="0" src="{{ section.settings.promo5 | img_url: '500x500' }}"></a></div>
+		
+	<!-- END 3 SECTION -->
+	
+	<!-- START 4 SECTION -->
+		{% if section.settings.promo6video == true %}
+		<div class="grid-item large--one-whole" style="padding: 10px; padding-top:0px;">
+			{{ section.settings.promo6videolink }}
+		</div>
+		{% endif %}
+		
+		{% if section.settings.promo6link != blank %}
+		<div class="grid-item large--one-whole" style="padding: 10px; padding-top:0px;">
+			<a href="{{ section.settings.promo6link }}"><img loading="lazy" src="{{ section.settings.promo6 | img_url: '1000x500' }}" border="0"></a>
+		</div>
+		{% endif %}
+	<!-- END 4 SECTION -->
+	
+	
+	<!-- START 5 SECTION -->
+	
+		<div class="grid-item large--one-half" style="padding: 10px;"><a href="{{ section.settings.promo7link }}"><img loading="lazy" border="0" src="{{ section.settings.promo7 | img_url: '500x500' }}"></a></div>
+		
+		<div class="grid-item large--one-half" style="padding: 10px;"><a href="{{ section.settings.promo8link }}"><img loading="lazy" border="0"  src="{{ section.settings.promo8 | img_url: '500x500' }}"></a></div>
+		
+	<!-- END 5 SECTION -->
+
+
+		
+		<div class="grid-item large--one-whole" style="padding: 10px;"><a href="{{ section.settings.promo9link }}"><img loading="lazy" border="0" src="{{ section.settings.promo9 | img_url: '1000x200' }}"></a><br><br></div>
+	
+	
+</div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Promo Zones",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "promo1",
+      "label": "Promo 1"
+    },
+    {
+	  "type": "text",
+      "id": "promo1link",
+      "label": "Promo 1 Link"
+     },
+     {
+	  "type": "checkbox",
+      "id": "promo1video",
+      "label": "Promo 1 Video?"
+    },
+    {
+	  "type": "textarea",
+      "id": "promo1videolink",
+      "label": "Promo 1 Video Embed"
+    },
+	{
+	 "type": "image_picker",
+      "id": "text1bgimage",
+      "label": "Text 1 BG Image"
+    },
+    {
+	  "type": "text",
+      "id": "text1bgcolor",
+      "label": "Text 1 BG Color"
+    },
+    {
+	  "type": "text",
+      "id": "text1header",
+      "label": "Text 1 Header"
+    },
+    {
+	  "type": "text",
+      "id": "text1text",
+      "label": "Text 1 Text"
+    },
+    {
+	  "type": "text",
+      "id": "text1linkurl",
+      "label": "Text 1 Link URL"
+    },
+    {
+	  "type": "text",
+      "id": "text1linktext",
+      "label": "Text 1 Link Text"
+    },
+    {
+	 "type": "image_picker",
+      "id": "text2bgimage",
+      "label": "Text 2 BG Image"
+    },
+    {
+	  "type": "text",
+      "id": "text2bgcolor",
+      "label": "Text 2 BG Color"
+    },
+    {
+	  "type": "text",
+      "id": "text2header",
+      "label": "Text 2 Header"
+    },
+    {
+	  "type": "text",
+      "id": "text2text",
+      "label": "Text 2 Text"
+    },
+    {
+	  "type": "text",
+      "id": "text2linkurl",
+      "label": "Text 2 Link URL"
+    },
+    {
+	  "type": "text",
+      "id": "text2linktext",
+      "label": "Text 2 Link Text"
+    },
+	{
+	 "type": "image_picker",
+      "id": "promo2",
+      "label": "Promo 2"
+    },
+    {
+	  "type": "text",
+      "id": "promo2link",
+      "label": "Promo 2 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo3",
+      "label": "Promo 3"
+    },
+    {
+	  "type": "text",
+      "id": "promo3link",
+      "label": "Promo 3 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo4",
+      "label": "Promo 4"
+    },
+    {
+	  "type": "text",
+      "id": "promo4link",
+      "label": "Promo 4 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo5",
+      "label": "Promo 5"
+    },
+    {
+	  "type": "text",
+      "id": "promo5link",
+      "label": "Promo 5 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo6",
+      "label": "Promo 6"
+    },
+    {
+	  "type": "text",
+      "id": "promo6link",
+      "label": "Promo 6 Link"
+    },
+    {
+	  "type": "checkbox",
+      "id": "promo6video",
+      "label": "Promo 6 Video?"
+    },
+    {
+	  "type": "textarea",
+      "id": "promo6videolink",
+      "label": "Promo 6 Video Embed"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo7",
+      "label": "Promo 7"
+    },
+    {
+	  "type": "text",
+      "id": "promo7link",
+      "label": "Promo 7 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo8",
+      "label": "Promo 8"
+    },
+    {
+	  "type": "text",
+      "id": "promo8link",
+      "label": "Promo 8 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo9",
+      "label": "Promo 9"
+    },
+    {
+	  "type": "text",
+      "id": "promo9link",
+      "label": "Promo 9 Link"
+    } 
+    
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
