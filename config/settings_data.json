@@ -1,6 +1,6 @@
 {
   "current": {
-    "color_primary": "#6e6d6d",
+    "color_primary": "#888787",
     "color_secondary": "#dcdcdc",
     "color_accent": "#fd0000",
     "color_body_bg": "#ffffff",
@@ -138,20 +138,39 @@
       "featured": {
         "type": "featured",
         "settings": {
-          "promo1": "shopify:\/\/shop_images\/FALL-2-PREORDER.gif",
-          "promo1link": "\/collections\/2019-fall-drop-2",
+          "promo1": "shopify:\/\/shop_images\/DLX-HEADERS-SUMMER20-PREBOOK-v21000x500-BASE.gif",
+          "promo1link": "\/collections\/2020-summer-prebook",
           "promo1video": true,
-          "promo1videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/3pSA1sYl_DE\" frameborder=\"0\" allowfullscreen=\"\"><\/iframe><\/div>",
-          "text1bgimage": "",
-          "text1bgcolor": "#9FFFE6",
-          "text1header": "NEWS - Week of 9.9",
-          "text1text": "<a href=\"https:\/\/www.spitfirewheels.com\/\" target=\"_Blank\"><b>SPITFIRE WHEELS : FALL 2019 CATALOG<\/b><\/a> --- Spitfire Fall Drop 1 Catalog is now live featuring Jarne Verbruggen pro edition Formula Fours, New colors in Formula Four Tablets and more! <br><br> <a href=\"\/blogs\/news\/thunder-x-pla-flatbar-frenzy\"><b>THUNDER X PLA FLATBAR FRENZY<\/b><\/a> --- This Saturday, 9\/14 come out for Thunder X PLA’s Flatbar Frenzy with Miles Silvas, James Wright, Michael Pulizzi, and Miika Adamov. Plus PLA’s new truck release, video premiere, and FREE pizza. <br><br> <a href=\"\/blogs\/news\/4th-annual-t-mack-skate-jam\"><b>4TH ANNUAL T-MACK SKATE JAM<\/b><\/a> --- Come out and celebrate Terrence’s ongoing effect on our community. Sunday, September 15th. 1-4PM at Terrence McCrary  ( Berkeley ) Skatepark. <br><br> <a href=\"\/collections\/2019-fall-drop-2\"><b>2019 FALL 2 PREORDER<\/b><\/a> --- is now live and accepting orders for all brands.",
-          "text1linkurl": "\/collections\/2019-fall-drop-2",
-          "text1linktext": "PREORDER",
-          "text2bgimage": "shopify:\/\/shop_images\/spitfire-bg2.jpg",
+          "promo1videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/F31nFUoSg54\" frameborder=\"0\" allowfullscreen=\"\"><\/iframe><\/div>",
+          "text1bgimage": "shopify:\/\/shop_images\/re-bg.jpg",
+          "text1bgcolor": "#F8FD92",
+          "text1color": "#333",
+          "text1header": "NEWS - Week of 9.16",
+          "story1title": "Spitfire's \"Keep The Fire Burning\" Video",
+          "story1link": "http:\/\/www.thrashermagazine.com\/articles\/videos\/spitfire-s-keep-the-fire-burning-video\/",
+          "story1text": "You won’t find a sicker road trip squad than this crew right here. The Spit team leaves nothing but scorched Earth and crushed concrete in its wake.",
+          "story2title": "SKATEISM #4",
+          "story2link": "\/products\/skateism-magazine-6-pack",
+          "story2text": "SKATEISM ISSUE 4 IS STILL IN STOCK",
+          "story3title": "thunder x pla",
+          "story3link": "https:\/\/www.thundertrucks.com\/features\/thunder-x-pla\/",
+          "story3text": "PLA has been holding it down for the Sacramento skate scene since the day their doors opened. For the Thunder X PLA release Miles Silvas, Michael Pulizzi, Miika Adamov & James Wright got together on a video project repping their shop and the city they call home, #PLAboys Know. Check out the video and the new Thunder X PLA capsule available now in-store and online at PLA.",
+          "story4title": "",
+          "story4link": "",
+          "story4text": "",
+          "text2bgimage": "shopify:\/\/shop_images\/sf-bg-2.jpg",
           "text2bgcolor": "",
+          "text2headercolor": "#fff",
           "text2header": "WHAT'S NEW\/BACK IN STOCK",
-          "text2text": "- <a href=\"\/pages\/spitfire-wheels-order-form-avail\"><b>SPITFIRES IN STOCK<\/b><\/a> <br>- <a href=\"\/collections\/2019-fall-drop-2\"><b>FALL DROP 2 PREORDER<\/b><\/a>",
+          "text2color": "#999",
+          "new1title": "NECKFACE SPITFIRE CAPSULE",
+          "new1url": "\/collections\/spitfire-x-neckface-capsule",
+          "new2title": "SPITFIRES IN STOCK",
+          "new2url": "\/pages\/spitfire-wheels-order-form-avail",
+          "new3title": "",
+          "new3url": "",
+          "new4title": "",
+          "new4url": "",
           "text2linkurl": "",
           "text2linktext": "",
           "promo2": "shopify:\/\/shop_images\/skateism.jpg",
@@ -162,10 +181,10 @@
           "promo4link": "\/collections\/antihero-decks\/products\/daan-grimple-business-8-06",
           "promo5": "shopify:\/\/shop_images\/cath-series.gif",
           "promo5link": "\/collections\/real-decks\/cathedrals",
-          "promo6": "shopify:\/\/shop_images\/fish-capsule.jpg",
-          "promo6link": "\/collections\/jeremy-fish-capsule",
-          "promo6video": false,
-          "promo6videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/Qfvcodjy9VQ\" frameborder=\"0\" allowfullscreen=\"\"><\/iframe><\/div>",
+          "promo6": "shopify:\/\/shop_images\/19-fall-d-2.jpg",
+          "promo6link": "\/collections\/2019-fall-drop-2",
+          "promo6video": true,
+          "promo6videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/3pSA1sYl_DE\" frameborder=\"0\" allowfullscreen=\"\"><\/iframe><\/div>",
           "promo7": "shopify:\/\/shop_images\/staples-promo-zone2.gif",
           "promo7link": "\/collections\/staples-collection",
           "promo8": "shopify:\/\/shop_images\/VE-Dot.gif",
@@ -177,10 +196,10 @@
       "collection": {
         "type": "collection",
         "settings": {
-          "brand1": "Real",
+          "brand1": "Spitfire",
           "brand2": "Antihero",
           "brand3": "Krooked",
-          "brand4": "Spitfire",
+          "brand4": "Real",
           "brand5": "Thunder",
           "brand6": "Venture"
         }
@@ -188,9 +207,9 @@
       "collection-header": {
         "type": "collection-header",
         "settings": {
-          "banner": "shopify:\/\/shop_images\/DLX-prebook-sum191000x500.jpg",
-          "pdflink": "",
-          "headertext": ""
+          "banner": "shopify:\/\/shop_images\/DLX-HEADERS-SUMMER20-PREBOOK-v21000x500-BASE.gif",
+          "pdflink": "https:\/\/www.dlxsf.com\/summer-2020-prebook.pdf",
+          "headertext": "2020 Summer Prebook"
         }
       },
       "collection-header2": {
@@ -299,8 +318,8 @@
       "collection-no-brands2": {
         "type": "collection-no-brands2",
         "settings": {
-          "banner": "shopify:\/\/shop_images\/sf-quartersnacks-1000x500.jpg",
-          "pdflink": "https:\/\/www.dlxsf.com\/spitfire-quartersnacks.pdf",
+          "banner": "shopify:\/\/shop_images\/sf-cat-neckface-wheels-b2b-1000x500.jpg",
+          "pdflink": "",
           "headertext": ""
         }
       },
