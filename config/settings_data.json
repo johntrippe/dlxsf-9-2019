@@ -138,10 +138,10 @@
       "featured": {
         "type": "featured",
         "settings": {
-          "promo1": "shopify:\/\/shop_images\/DLX-HEADERS-SUMMER20-PREBOOK-v21000x500-BASE.gif",
-          "promo1link": "\/collections\/2020-summer-prebook",
+          "promo1": "shopify:\/\/shop_images\/2-HIGH-SEAS-dt2.jpg",
+          "promo1link": "\/collections\/real-decks\/high-seas",
           "promo1video": true,
-          "promo1videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/vio_dtdqO5U\" frameborder=\"0\" allowfullscreen=\"\"><\/iframe><\/div>",
+          "promo1videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/WfsLBtRd1CA\" frameborder=\"0\" allowfullscreen=\"\"><\/iframe><\/div>",
           "text1bgimage": "",
           "text1bgcolor": "#ff0000",
           "text1color": "#fff",
