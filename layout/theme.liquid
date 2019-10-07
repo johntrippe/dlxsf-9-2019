@@ -13,18 +13,39 @@
 <!-- START GOOGLE ADS -->
 
 
-<!-- Global site tag (gtag.js) - Google Ads: 1005054919 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1005054919"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'AW-1005054919', { 'optimize_id': 'GTM-5CXCFT4'});
-</script>
+  <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-PRMQXXX');</script> <!-- End Google Tag Manager -->
 
+  <!-- Page-hiding snippet (recommended)  -->
+  <style>.async-hide { opacity: 0 !important} </style>
+  <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+  h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+  (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+  })(window,document.documentElement,'async-hide','dataLayer',4000,
+  {'GTM-KL7XXXX':true});</script>
+
+  <!-- Modified Analytics tracking code with Optimize plugin -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47403084-2', 'auto');
+  ga('require', 'GTM-5CXCFT4');
+  ga('send', 'pageview');
+  </script>
+  
+  <style>.async-hide { opacity: 0 !important} </style>
+<script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+})(window,document.documentElement,'async-hide','dataLayer',4000,
+{'GTM-5CXCFT4':true});</script>
 
 <!-- END GOOGLE ADS -->
+
+
 
 	
 <!-- Guided Tour -->
@@ -36,13 +57,6 @@
 
 
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WPJCFFC');</script>
-<!-- End Google Tag Manager -->
 {% unless customer %}
     {% if template contains 'customers' %}
         {% assign send_to_login = false %}
@@ -123,10 +137,7 @@ location.replace("/account/login");
 </head>
 
 <body id="{{ page_title | handle }}" {% if  collection.title == "Krooked Decks" or collection.title == "Krooked Apparel" %} class="krooked" {% elsif collection.title == "Spitfire Wheels" or collection.title == "Spitfire Apparel" %} class="spitfire" {% elsif collection.title == "Thunder Trucks" or collection.title == "Thunder Apparel" %} class="thunder" {% elsif collection.title == "Venture Trucks" or collection.title == "Venture Apparel" %} class="venture" {% elsif collection.title == "REAL Decks" or collection.title == "REAL Apparel" %} class="real" {% elsif collection.title == "Antihero Decks" or collection.title == "Antihero Apparel" %} class="antihero" {% else %} class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" {% endif %}>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPJCFFC"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
 
 <!-- START CHAT CODE -->
 <script async type="text/javascript" src="//userlike-cdn-widgets.s3-eu-west-1.amazonaws.com/1edc32ff32bf59f94fda43e861a03fb6312c8f9f42505a3e358424c6c6712ebe.js"></script> 
