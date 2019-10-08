@@ -151,6 +151,12 @@
     {% endif %}
     <!-- END COLLECTION ALL COLLECTION TITLE -->
     <!-- START SHOW ONLY AVAILABLE -->
+    
+    <!-- START COLLECTION HEADER -->	
+    
+    {% if collection.image %}<img src="{{ collection.image | img_url: '1000x500' }}">{% endif %}
+    
+    <!-- END COLLECTION HEADER -->
 	
 	{% if  collection.title == "Antihero Decks" %}
 	 <br><br><small><a href="/collections/antihero-decks-on-hand">Show Only On Hand</a></small><br><br>
