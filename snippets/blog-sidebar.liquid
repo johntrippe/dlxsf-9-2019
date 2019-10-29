@@ -6,7 +6,7 @@
     <time pubdate datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
       <em class="text-light">{{ article.published_at | date: format: 'month_day_year' }}</em>
     </time>
-    {% if article.image != blank %}<br><a href="{{ article.url }}">{{ article | img_url: '200x200', scale: 2 | img_tag: '' }}</a>{% endif %}
+    {% if article.image != blank %}<br><a href="{{ article.url }}">{{ article | img_url: '300x300', scale: 2 | img_tag: '' }}</a>{% endif %}
   </p>
 {% endfor %}
 
