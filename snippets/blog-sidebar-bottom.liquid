@@ -1,0 +1,14 @@
+
+{% for article in blog.articles limit:12 %}
+
+      {% if article.image != blank %}
+      <div class="grid-item large--one-quarter one-quarter small--one-third">
+	  <p>
+	    <a href="{{ article.url }}">{{ article.title }}</a>
+	    <br><a href="{{ article.url }}">{{ article | img_url: '200x200', scale: 2 | img_tag: '' }}</a>
+	  </p>
+      </div>
+      {% endif %}
+{% endfor %}
+
+
