@@ -16,48 +16,48 @@
 <!-- START CART SUMMARY SIDEBAR -->
 
     <h1 class="h2">{{ 'cart.general.title' | t }}</h1>
-
-
+    
+     
 {% for item in cart.items %}
-    {% if item.product.tags contains 'Onsale' or item.product.tags contains 'Price Points' %}{% elsif item.product.type == "Decks" %}
-         {% capture temp %}{{ num | plus: item.quantity }}{% endcapture %}
+    {% if item.product.tags contains 'Onsale' or item.product.tags contains 'Price Points' %}{% elsif item.product.type == "Decks" %}   
+         {% capture temp %}{{ num | plus: item.quantity }}{% endcapture %} 
     {% endif %}
     {% assign num = temp %}
 {% endfor %}
-
-{% for item in cart.items %}
-    {% if item.product.type == "Trucks" %}
-         {% capture temp2 %}{{ num_trucks | plus: item.quantity }}{% endcapture %}
+ 
+{% for item in cart.items %}   
+    {% if item.product.type == "Trucks" %}       
+         {% capture temp2 %}{{ num_trucks | plus: item.quantity }}{% endcapture %} 
     {% endif %}
     {% assign num_trucks = temp2 %}
 {% endfor %}
 
-{% for item in cart.items %}
-	{% unless item.product.tags contains 'Onsale' %}
-    {% if item.product.type == "Wheels" %}
-         {% capture temp3 %}{{ num_wheels | plus: item.quantity }}{% endcapture %}
+{% for item in cart.items %} 
+	{% unless item.product.tags contains 'Onsale' %}  
+    {% if item.product.type == "Wheels" %}       
+         {% capture temp3 %}{{ num_wheels | plus: item.quantity }}{% endcapture %} 
     {% endif %}
     {% endunless %}
     {% assign num_wheels = temp3 %}
 {% endfor %}
 
 {% for item in cart.items %}
-    {% if item.product.tags contains 'Onsale' and item.product.type == "Decks" %}
-         {% capture temp4 %}{{ num_sale | plus: item.quantity }}{% endcapture %}
+    {% if item.product.tags contains 'Onsale' and item.product.type == "Decks" %}       
+         {% capture temp4 %}{{ num_sale | plus: item.quantity }}{% endcapture %} 
     {% endif %}
     {% assign num_sale = temp4 %}
 {% endfor %}
 
 {% for item in cart.items %}
-    {% if item.product.tags contains 'Onsale' and item.product.type == "Wheels" %}
-         {% capture temp9 %}{{ num_sale_wheels | plus: item.quantity }}{% endcapture %}
+    {% if item.product.tags contains 'Onsale' and item.product.type == "Wheels" %}       
+         {% capture temp9 %}{{ num_sale_wheels | plus: item.quantity }}{% endcapture %} 
     {% endif %}
     {% assign num_sale_wheels = temp9 %}
 {% endfor %}
 
 {% for item in cart.items %}
-    {% if item.product.tags contains 'Price Points' and item.product.type == "Decks" %}
-         {% capture temp5 %}{{ num_pricepoint | plus: item.quantity }}{% endcapture %}
+    {% if item.product.tags contains 'Price Points' and item.product.type == "Decks" %}       
+         {% capture temp5 %}{{ num_pricepoint | plus: item.quantity }}{% endcapture %} 
     {% endif %}
     {% assign num_pricepoint = temp5 %}
 {% endfor %}
@@ -71,47 +71,47 @@
 {% endfor %}
 
 {% for item in cart.items %}
-    {% if item.product.type == "Apparel" %}
-         {% capture temp7 %}{{ num_apparel | plus: item.quantity }}{% endcapture %}
+    {% if item.product.type == "Apparel" %}       
+         {% capture temp7 %}{{ num_apparel | plus: item.quantity }}{% endcapture %} 
     {% endif %}
     {% assign num_apparel = temp7 %}
 {% endfor %}
 
 {% for item in cart.items %}
-    {% if item.product.type == "Prebook" %}
-         {% capture temp8 %}{{ num_prebook | plus: item.quantity }}{% endcapture %}
+    {% if item.product.type == "Prebook" %}       
+         {% capture temp8 %}{{ num_prebook | plus: item.quantity }}{% endcapture %} 
     {% endif %}
     {% assign num_prebook = temp8 %}
 {% endfor %}
 
 
 
-{% if num > '0' %}
+{% if num > '0' %}  
 # Reg Decks: {{ num }}
 {% endif %}
-{% if num_pricepoint > '0' %}
+{% if num_pricepoint > '0' %} 
 <br># Pricepoint Decks: {{ num_pricepoint }}
 {% endif %}
-{% if num_sale > '0' %}
+{% if num_sale > '0' %} 
 <br># Sale Decks: {{ num_sale }}
 {% endif %}
-{% if num_sale_wheels > '0' %}
+{% if num_sale_wheels > '0' %} 
 <br># Sale Wheel Sets: {{ num_sale_wheels }}
 {% endif %}
-{% if num_trucks > '0' %}
+{% if num_trucks > '0' %} 
 <br># Truck Sets: {{ num_trucks | divided_by: 2 }}
 {% endif %}
-{% if num_wheels > '0' %}
+{% if num_wheels > '0' %} 
 <br># Wheel Sets: {{ num_wheels }}
 {% endif %}
 
-{% if num_apparel > '0' %}
+{% if num_apparel > '0' %} 
 <br># Apparel: {{ num_apparel }}
 {% endif %}
-{% if num_acc > '0' %}
+{% if num_acc > '0' %} 
 <br># Accessories: {{ num_acc }}
 {% endif %}
-{% if num_prebook > '0' %}
+{% if num_prebook > '0' %} 
 <br># Prebook: {{ num_prebook }}
 {% endif %}
 
@@ -134,17 +134,17 @@ function changeText(idElement) {
         }
     }
     }
-
+   
  </script>
 
 <div data-intro="Click on filters to browse by size, style, pro, etc" data-step="1">
-
+		
 {% if collection.title == "Apparel" or collection.title == "Spitfire Apparel"  or collection.title == "Krooked Apparel"  or collection.title == "Venture Apparel" or collection.title == "Antihero Apparel"  or collection.title == "Thunder Apparel" or collection.title == "REAL Apparel" %}
 		<ul class="clearfix filters">
 		<li class="clearfix filter">
 	    {% assign tags = 'Hats, Beanies, Tees, Jackets, Socks, Misc Apparel, Hoodies, Bearings, Bolts, Bushings, Griptape, Misc Hardware, Patches, Risers, Skate Tools, Wax, Youths, Girls/Juniors' | split: ',' %}
 	    <label style="cursor:pointer;" onClick="javascript:changeText(5)" class="tree-toggle-down clearfix filter">&nbsp;&nbsp;TYPE<span id="element5" style="float:right; padding-right:30px;">-</a></label>
-	     <ul class="nav nav-list tree-down 2bullets">
+	     <ul class="nav nav-list tree-down bullets">
 	      {% for t in tags %}
 	      {% assign tag = t | strip %}
 	      {% if current_tags contains tag %}
@@ -157,12 +157,12 @@ function changeText(idElement) {
 		</li>
 	  	</ul>
 	  	<li class="divider2"></li>
-
-
+	  
+	  
 	  	<label>&nbsp;&nbsp;BRANDS<span style="float:right; padding-right:30px;">+</a></label>
 	  	<ul class="clearfix filters">
 		<li class="clearfix filter">
-			<ul class="nav nav-list tree bullets">
+			<ul class="nav nav-list tree bullets">	
 				<li><a href="/collections/real-apparel">REAL Apparel</a></li>
 				<li><a href="/collections/antihero-apparel">Antihero Apparel</a></li>
 				<li><a href="/collections/krooked-apparel">Krooked Apparel</a></li>
@@ -172,17 +172,17 @@ function changeText(idElement) {
 			</ul>
 		</li>
 	  	</ul>
-
+		
 
 {% elsif collection.title == "2019 SPRING DROP 1"   %}
 
 
 	   <hr>
 	    <label>&nbsp;&nbsp;SPRING DROP 1<span style="float:right; padding-right:30px;">+</a></label>
-
+	    
 	    <ul class="clearfix filters">
 		<li class="clearfix filter">
-			<ul class="nav nav-list tree bullets">
+			<ul class="nav nav-list tree bullets">	
 			      <li><a href="#Real">REAL</a></li>
 			      <li><a href="#Antihero">Antihero</a></li>
 				  <li><a href="#Krooked">Krooked</a></li>
@@ -192,24 +192,24 @@ function changeText(idElement) {
 			</ul>
 		</li>
 	  	</ul>
-
-
+	    
+	    
 
 {% elsif collection.title == "SF HI VIS, SF SLIDES & KR EFFISHANT CAPSULES"   %}
 
 
 	   <hr>
 	    <label><b>SF & KR CAPSULES</b></label>
-
+	    
 	    <ul class="clearfix filters">
 	      <li class="clearfix filters"><a href="#SFNIVI">&#183; SPITFIRE NIGHT VISION</a></li>
 	      <li class="clearfix filters"><a href="#SFSL">&#183; SPITFIRE SLIDES</a></li>
 	      <li class="clearfix filters"><a href="#KREF">&#183; KROOKED EFFISHANT</a></li>
 	    </ul>
+	    
 
-
-
-
+		
+		
 {% elsif collection.title == "Accessories" or collection.title == "REAL Accessories" or collection.title == "Antihero Accessories" or collection.title == "Spitfire Accessories" or collection.title == "Thunder Accessories" or collection.title == "Krooked Accessories" or collection.title == "Venture Accessories"   %}
 
 
@@ -229,8 +229,8 @@ function changeText(idElement) {
 	    </ul>
 	  </li>
 	  </ul>
-
-
+	  
+	
 	<label>&nbsp;&nbsp;BRANDS<span style="float:right; padding-right:30px;">+</a></label>
 	<ul class="clearfix filters">
 		<li class="clearfix filter">
@@ -243,12 +243,12 @@ function changeText(idElement) {
 			<li><a href="/collections/venture-accessories">Venture Accessories</a></li>
 			</ul>
 		</li>
-	</ul>
+	</ul>	
+		
 
-
-
+ 
  <!-- END + CHANGER ON FILTERS -->
-
+ 
 {% elsif collection.title == "REAL Decks" or collection.title == "REAL" or collection.title == "Krooked Decks" or collection.title == "Krooked Decks - On Hand" or collection.title == "REAL Decks - On Hand" or collection.title == "Antihero Decks - On Hand" or collection.title == "Decks" or collection.title == "REAL Decks" or collection.title == "Antihero Decks" or collection.title == "Trucks" or collection.title == "Thunder Trucks" or collection.title == "Venture Trucks" or collection.title == "Wheels" or collection.title == "Spitfire Wheels" or collection.title == "Krooked Wheels" %}
 	<ul class="clearfix filters">
 	  <li class="clearfix filter">
@@ -280,7 +280,7 @@ function changeText(idElement) {
 	      {% endfor %}
 	    </ul>
 	  </li>
-
+	  
 	  <li class="divider2"></li>
 	  <li class="clearfix filter">
 	    {% assign tags = 'V-Titanium Lights, Pro V-Hollow Lights, Team V-Hollow Lights, Pro V-Lights, Team V-Lights, Pro Regulars, Team Regulars, Pro, Team, Specialty Shape, Slicks, Full Shapes, Twin Tails, Price Points, Formula Four Pro, Formula Four Team, Formula Four Colored, Lock-Ins, 80HD Softcruiser, Pro Classic Series, Team Classics, Colored, Bighead, Radials, Radial Slims, Conical Full, Spitfire Wide, Classic Full, Tablets, 101 Duros, 99 Duros, Pro Trucks, Titanium Lights, Team Titaniums, Hollow Lights, Team Hollows, Lights, Team Lights, Team Editions, Night Editions, Polished, Color' | split: ',' %}
@@ -298,7 +298,7 @@ function changeText(idElement) {
 	  </li>
 
 	 </ul>
-
+	 
 {% elsif collection.title == "Hardware" or collection.title == "Bearings" or collection.title == "Bolts" or collection.title == "Bushings" or collection.title == "Griptape" or collection.title == "Misc Hardware" or collection.title == "Risers" or collection.title == "Skate Tools" or collection.title == "Wax" %}
 
 		<ul class="clearfix filters">
@@ -311,8 +311,8 @@ function changeText(idElement) {
 		<li class="clearfix filters"><a href="/collections/skate-tools">Skate Tools</a></li>
 		<li class="clearfix filters"><a href="/collections/wax">Wax</a></li>
 		</ul>
-
-
+ 
+	  
 {% elsif product.type == "Decks" and product.vendor == "Real" %}
 		<ul class="clearfix filters">
 		<li class="clearfix filter">
@@ -333,7 +333,7 @@ function changeText(idElement) {
 
 
 
-
+		
 {% elsif product.type == "Decks" and product.vendor == "Antihero" %}
 		<ul class="clearfix filters">
 		<li class="clearfix filter">
@@ -353,7 +353,7 @@ function changeText(idElement) {
 		</ul>
 
 
-
+		
 {% elsif product.type == "Decks" and product.vendor == "Krooked" %}
 		<ul class="clearfix filters">
 		<li class="clearfix filter">
@@ -393,7 +393,7 @@ function changeText(idElement) {
 			</ul>
 		</li>
 		</ul>
-
+		
 		<ul class="clearfix filters">
 		<li class="clearfix filter">
 			<label style="cursor:pointer;" class="clearfix filter">&nbsp;&nbsp;STYLES<span style="float:right; padding-right:30px;">+</a></label>
@@ -424,7 +424,7 @@ function changeText(idElement) {
 			</ul>
 		</li>
 		</ul>
-
+		
 		<ul class="clearfix filters">
 		<li class="clearfix filter">
 			<label style="cursor:pointer;" class="clearfix filter">&nbsp;&nbsp;STYLES<span style="float:right; padding-right:30px;">+</a></label>
@@ -442,7 +442,7 @@ function changeText(idElement) {
 			</ul>
 		</li>
 		</ul>
-
+	  
 {% endif %}
 </div>
 
@@ -457,18 +457,18 @@ function changeText(idElement) {
     $('.tree-toggle').click(function () {
     $(this).parent().children('ul.tree').toggle(200);
 	});
-
+	
 	$(function () {
     $('.tree-toggle').parent().children('ul.tree').toggle(200);
 	});
 	// END MENU STARTS UP
-
+	
 	// START MENU STARTS DOWN
     $('.tree-toggle-down').parent().children('ul.tree-down').toggle(200);
     $('.tree-toggle-down').click(function () {
     $(this).parent().children('ul.tree-down').toggle(200);
 	});
-
+	
 	$(function () {
     $('.tree-toggle-down').parent().children('ul.tree-down').toggle(200);
 	});
@@ -493,7 +493,7 @@ function changeText(idElement) {
 			</ul>
 		</li>
 	</ul>
-
+	
 
 <!-- END BRANDS -->
 
@@ -555,3 +555,5 @@ function changeText(idElement) {
     </div>
 
 <!-- END DROPDOWNS -->
+
+
