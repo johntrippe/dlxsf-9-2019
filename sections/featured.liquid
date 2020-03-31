@@ -257,17 +257,29 @@
 			</div>
 		</div>
 
-		<div class="grid-item large--one-half" style="padding: 10px;">
-      <div  onclick="window.open('{{ section.settings.new1url }}');" style="cursor:pointer; padding: 10px; {% if section.settings.text2bgcolor != blank %}background-color: {{ section.settings.text2bgcolor }};{% endif %} height: 100%; {% if section.settings.text2bgimage != blank %}background: url({{ section.settings.text2bgimage | img_url: '1000x1000' }});{% endif %}"><h2><font color="{{ section.settings.text2hdrcolor }}">{{ section.settings.text2header }}:</font></h2>
-			<div style="padding-top:{{ section.settings.new1titleheight }}px;"><h2>
-			{% if section.settings.new1title != blank %}<p style="background-color: rgba({{instaBG}}, {{ section.settings.instaTxtAplha }} );"><a href="{{ section.settings.new1url }}"><b><font color="{{ section.settings.text2color }}">- {{ section.settings.new1title }}</font></b></a></p><br>{% endif %}
-			{% if section.settings.new2title != blank %}<a href="{{ section.settings.new2url }}"><b><font color="{{ section.settings.text2color }}">- {{ section.settings.new2title }}</font></b></a><br>{% endif %}
-			{% if section.settings.new3title != blank %}<a href="{{ section.settings.new3url }}"><b><font color="{{ section.settings.text2color }}">- {{ section.settings.new3title }}</font></b></a><br>{% endif %}
-			{% if section.settings.new4title != blank %}<a href="{{ section.settings.new4url }}"><b><font color="{{ section.settings.text2color }}">- {{ section.settings.new4title }}</font></b></a><br>{% endif %}
-			</h2></div>
-			{% if section.settings.whatsnewimage != blank %}<br><br><a href="{% if section.settings.usenew1url == true %}{{ section.settings.new1url }}{% elsif section.settings.usenew2url == true %}{{ section.settings.new2url }}{% elsif section.settings.usenew3url == true %}{{ section.settings.new3url }}{% elsif section.settings.usenew4url == true %}{{ section.settings.new4url }}{% endif %}">{{ section.settings.whatsnewimage | img_url: '500x500', scale: 2 | img_tag: '' }}</a>{% endif %}
-			</div>
-		</div>
+		<!-- START INSTAGRAM INSERT -->
+    <script>
+        window.onload=function() {
+          var E = document.getElementsByClassName("item");
+          var m = E.length;
+          var n = parseInt(Math.random()*m);
+        
+          for (var i=m-1;i>=0;i--) {
+            var e = E[i];
+            e.style.display='none';
+            }
+        
+          E[n].style.display='';
+        }
+    </script>
+    <div class="elfsight-sapp-18624e41-fea0-4f9e-9292-53055b2be891 item grid-item large--one-half" style="padding: 10px;"></div>
+    <div class="elfsight-sapp-650327e2-c197-453c-b4bb-e4c0ffd6e3f5 item grid-item large--one-half" style="padding: 10px;"></div>
+    <div class="elfsight-sapp-53df474c-82b8-4f67-bfe9-9423a6e15a8c item grid-item large--one-half" style="padding: 10px;"></div>
+    <div class="elfsight-sapp-1ca99556-199b-4b1b-8ee8-86c9fd9cb6e1 item grid-item large--one-half" style="padding: 10px;"></div>
+    <div class="elfsight-sapp-439b8dad-d2e8-4794-8780-bd8ec9c3e3b4 item grid-item large--one-half" style="padding: 10px;"></div>
+    <div class="elfsight-sapp-30f03ba9-8926-4599-9582-57789a8135c6 item grid-item large--one-half" style="padding: 10px;"></div>
+    <div class="elfsight-sapp-ed7a20ac-d3cd-4862-92a7-a480b8e5f444 item grid-item large--one-half" style="padding: 10px;"></div>
+    <!-- END INSTAGRAM INSERT -->
 		
 	<!-- END TEXT SECTION -->
 	
