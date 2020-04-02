@@ -209,18 +209,46 @@
 <!-- END BACKGROUND COLOR FOR INSTAGRAM -->
 
 <div class="grid-item" style="padding: 0px;">
-	{% if section.settings.promo1link != blank %}
+  <!-- START SLIDER -->
+  {% if section.settings.promo1link == blank %}
+  <div class="grid-item large--one-whole" style="padding: 10px; padding-top:0px;">
+  {% if settings.slider_home_enable %}
+  <div class="flexslider" id="heroSlider" data-auto="{{ settings.slider_home_auto }}" data-rate="{{ settings.slider_home_rate }}">
+    <ul class="slides">
+
+      {% for i in (1..6) %}
+        {% capture slide %}slide_{{ i }}{% endcapture %}
+        {% capture slide_link %}slide_{{ i }}_link{% endcapture %}
+        {% capture slide_img %}slide_{{ i }}.jpg{% endcapture %}
+        {% capture slide_alt %}slide_{{ i }}_alt{% endcapture %}
+        {% if settings[slide] %}
+          <li>
+            <a href="{{ settings[slide_link] }}" class="slide-link">
+              {{ slide_img | asset_url | img_tag: settings[slide_alt] }}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+</div>
+{% endif %}
+  <!-- END SLIDER -->
+	<!-- START PROMO 1 -->
+  {% if section.settings.promo1link != blank %}
 	<div class="grid-item large--one-whole" style="padding: 10px; padding-top:0px;">
-		<!-- START VIDEO -->
 		<a href="{{ section.settings.promo1link }}"><img src="{{ section.settings.promo1 | img_url: '1000x500' }}" border="0"></a>
-		<!-- END VIDEO -->
 	</div>
 	{% endif %}
+  <!-- END PROMO 1 -->
+  <!-- START VIDEO -->
 	{% if section.settings.promo1video == true %}
 	<div class="grid-item large--one-whole" style="padding: 10px; padding-top:0px;">
 		{{ section.settings.promo1videolink }}
 	</div>
 	{% endif %}
+  <!-- END VIDEO -->
 </div>
 
 <div class="grid-item" style="padding: 0px; display: flex; flex-wrap: wrap;">
