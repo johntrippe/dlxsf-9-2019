@@ -262,7 +262,7 @@
       <img src="https://cdn.shopify.com/s/files/1/0714/9533/files/NEWS-HEADER-2.png?v=1584463946"><br>
 			
 			<!-- START NEWS STORIES -->
-      <div style="padding: 10px;">
+      <div style="top-padding: 10px;">
 			<font color="{{ section.settings.text1color }}">
 			
 			{% if section.settings.story1title != blank %}<p><a href="{{ section.settings.story1link }}"><b><font color="{{ section.settings.text1color }}"><u>{{ section.settings.story1title | upcase }}</u></font></b></a> --> {{ section.settings.story1text }}</p>{% endif %}
@@ -273,10 +273,10 @@
 			
 			
 			{% for article in blogs.News.articles limit: section.settings.numofblogs %}
-				<p><a href="{{ article.url }}"><font color="{{ section.settings.text1color }}"><b><u>{{ article.published_at | date: "%a - %b %d" }} | {{ article.title | upcase }}</u></b></a> --> {{ article.excerpt }}</font>
+				<a href="{{ article.url }}"><font color="{{ section.settings.text1color }}"><b><u>{{ article.published_at | date: "%a - %b %d" }} | {{ article.title | upcase }}</u></b></a> --> {{ article.excerpt }}</font>
 				{% if article.image %}
 					{% unless article.tags contains "noimg" %}<br><br><a href="{{ article.url }}">{{ article | img_url: '500x500', scale: 2 | img_tag: '' }}</a>{% endunless %}
-				{% endif %}</p>
+				{% endif %}
 			{% endfor %}
 			
 			</font>
