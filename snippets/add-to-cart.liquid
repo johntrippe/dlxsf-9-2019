@@ -4,7 +4,7 @@
     <div class="product-grid-image">
       <div class="product-grid-image--centered">
         {% if sold_out %}
-          <div class="badge badge--sold-out"><span class="badge-label">On Back Order</span></div>
+          <div class="badge badge--sold-out"><span class="badge-label">{{ 'products.product.sold_out' | t }}</span></div>
         {% endif %}
         
         {% if product.variants.first.inventory_management == "shopify" and product.variants.first.inventory_quantity <= 0 and product.available and product.tags contains 'Atonce' %}
@@ -35,7 +35,7 @@
         {% endif %}</a>
         
         {% if product.available == false %}
-        	- <font color="red">Backordered</font>
+        	- <font color="red">sold out</font>
         {% endif %}
         
         <!-- START NEW SEASON -->
