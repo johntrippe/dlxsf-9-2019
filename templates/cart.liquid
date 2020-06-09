@@ -238,6 +238,10 @@ return confirm("Are you sure you want to clear your cart?");
     {% assign num_prebook = temp8 %}
 {% endfor %}
 
+<!-- START CODE FOR LIMITING TRUCK, DECK AND WHEEL QTYS -->
+
+<!-- END CODE FOR LIMITING TRUCK, DECK AND WHEEL QTYS -->
+
 <!-- START LIMIT ON SPECIAL PRODUCT -->
 {% assign limit_item = '0' %}
 {% for item in cart.items %}
@@ -356,6 +360,10 @@ return confirm("Are you sure you want to clear your cart?");
 	                {% if item.variant.inventory_quantity <= 0 and item.product.tags contains 'Atonce' %}
 	                <br><small><font color="red">Item on back order</font></small>
 	                {% endif %}
+                  <!-- START CODE FOR LIMITING AMOUNT CUST CAN BUY -->
+                  {% if item.product.type == 'Trucks' and item.quantity > 6 %}
+                  <br><small><font color="blue">Max trucks are 6 per style</font></small>
+                  {% endif %}
                 {% endunless %}
                 
                 {% include 'season-new' %}
@@ -387,7 +395,7 @@ return confirm("Are you sure you want to clear your cart?");
           <div class="grid">
 
             <div class="grid-item one-half medium-down--one-third text-right">
-              <input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0" data-id="{{ item.id }}">
+              <input type="number" name="updates[]" id="updates_{{ item.id }}" value="{% if item.product.type == 'Trucks' and item.quantity > 6 %}6{% else %}{{ item.quantity }}{% endif %}" min="0" data-id="{{ item.id }}">
             </div>
 
             <div class="grid-item one-third medium-down--one-third medium-down--text-left text-right">

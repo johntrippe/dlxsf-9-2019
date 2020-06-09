@@ -84,10 +84,11 @@
 		<div style="display:inline-block;">
 		
 		
+		<!-- except if (unless) inventory management is blank or allowed to sell past negative inventory, assign max can add to how many are left minus how many the customer already has in their cart. -->
 		
 		<input type="trippe" onfocus="this.select()" class="quantity field" data-id="{{ variant.id }}" min="0" 
 		
-		{% comment %}if inventory management is blank or allowed to sell past negative inventory, assign max can add to how many are left minus how many the customer already has in their cart.{% endcomment %}
+		
 
 		{% unless item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}
 			{% assign max = variant.inventory_quantity %}
