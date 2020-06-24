@@ -356,24 +356,28 @@ return confirm("Are you sure you want to clear your cart?");
               
                 <br>
                 <small>{% unless item.variant.title contains 'Default' %}{{ item.variant.title }}<br>{% endunless %}Part ID: {{ item.variant.sku }}</small>
+                {% include 'season-new' %}
                 {% unless item.product.tags contains 'nbo' %}
 	                {% if item.variant.inventory_quantity <= 0 and item.product.tags contains 'Atonce' %}
 	                <br><small><font color="red">Item on back order</font></small>
 	                {% endif %}
                   <!-- START CODE FOR LIMITING AMOUNT CUST CAN BUY -->
                   {% if item.product.type == 'Trucks' and item.quantity > 6 %}
-                  <br><h2><font color="blue">*Max trucks are 6 per style</font></h2>
+                  <br><h2><font color="blue">*Max trucks are 6 per style</font>
+                  <br>Update QTYs and 'Update Cart'</h2>
                   {% endif %}
                   {% if item.product.type == 'Decks' and item.quantity > 3 %}
-                  <br><h2><font color="blue">*Max decks are 3 per style</font></h2>
+                  <br><h2><font color="blue">*Max decks are 3 per style</font>
+                  <br>Update QTYs and 'Update Cart'</h2>
                   {% endif %}
                   {% if item.product.type == 'Wheels' and item.quantity > 3 %}
-                  <br><h2><font color="blue">*Max wheels are 3 per style</font></h2>
+                  <br><h2><font color="blue">*Max wheels are 3 per style</font>
+                  <br>Update QTYs and 'Update Cart'</h2>
                   {% endif %}
                   <!-- END CODE FOR LIMITING AMOUNT CUST CAN BUY -->
                 {% endunless %}
                 
-                {% include 'season-new' %}
+                
               
 
               {% if item.properties.size > 0 %}
