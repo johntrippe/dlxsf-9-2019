@@ -120,6 +120,7 @@ location.replace("/account/login");
 
 
 
+  {% render 'minmaxify-head' %}
 </head>
 
 <body id="{{ page_title | handle }}" {% if  collection.title == "Krooked Decks" or collection.title == "Krooked Apparel" %} class="krooked" {% elsif collection.title == "Spitfire Wheels" or collection.title == "Spitfire Apparel" %} class="spitfire" {% elsif collection.title == "Thunder Trucks" or collection.title == "Thunder Apparel" %} class="thunder" {% elsif collection.title == "Venture Trucks" or collection.title == "Venture Apparel" %} class="venture" {% elsif collection.title == "REAL Decks" or collection.title == "REAL Apparel" %} class="real" {% elsif collection.title == "Antihero Decks" or collection.title == "Antihero Apparel" %} class="antihero" {% else %} class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" {% endif %}>
