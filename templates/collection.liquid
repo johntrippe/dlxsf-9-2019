@@ -183,10 +183,19 @@
 	
 	<!-- START TRUCK NOTE -->
 	{% include 'toggle-filters' %} {% if  collection.title == "Trucks" or collection.title == "Thunder Trucks" or collection.title == "Venture Trucks" %} 
-  <!--<p><font color="red"><h1>Please note truck prices have increased.</h1></font></p>
-  <p><h2>We encourage you to review prices you sell for and adjust accordingly. <br>Contact your rep for more information.</h2></p>-->
+  <p><h2><font color="red">Please note</font>: We are limiting max order quantities per style of trucks to 10.</h2></p>
   <br><br>*<B>Please note</B>* that trucks are sold as singles.{% endif %}
 	<!-- END TRUCK NOTE -->
+
+  <!-- START DECK NOTE -->
+	{% include 'toggle-filters' %} {% if  collection.title == "Decks" or collection.title == "REAL Decks" or collection.title == "Antihero Decks" or collection.title == "Krooked Decks" %} 
+  <p><h2><font color="red">Please note</font>: We are limiting max order quantities per style of decks to 5.</h2></p>{% endif %}
+	<!-- END DECK NOTE -->
+
+  <!-- START WHEELS NOTE -->
+	{% include 'toggle-filters' %} {% if  collection.title == "Wheels" or collection.title == "Spitfire Wheels" %} 
+  <p><h2><font color="red">Please note</font>: We are limiting max order quantities per style of wheels to 10.</h2></p>{% endif %}
+	<!-- END WHEELS NOTE -->
     <header class="section-header">
      
       <div class="section-header--right">
