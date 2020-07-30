@@ -43,6 +43,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WPJCFFC');</script>
 <!-- End Google Tag Manager -->
+
 {% unless customer %}
     {% if template contains 'customers' %}
         {% assign send_to_login = false %}
@@ -54,7 +55,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {% if send_to_login %}
 <script type="text/javascript"><!--
 
-location.replace("/account/login");
+window.top.location.href="/account/login";
 
 //--></script>
 {% endif %}
