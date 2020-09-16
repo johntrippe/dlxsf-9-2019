@@ -363,6 +363,13 @@ return confirm("Are you sure you want to clear your cart?");
 	                {% if item.variant.inventory_quantity <= 0 and item.product.tags contains 'Atonce' %}
 	                <br><small><font color="red">Item on back order</font></small>
 	                {% endif %}
+                  <!-- START CODE FOR LIMITING AMOUNT COMPLETES PREBOOK CAN BUY -->
+                  {% if item.product.tags contains '091520' and item.quantity > 10 %}
+                  <br><h2><font color="blue">*Max completes are 10 per style</font>
+                  <br>Update QTYs and Click 'Update Cart'</h2>
+                  {% endif %}
+                  <!-- END CODE FOR LIMITING AMOUNT COMPLETES PREBOOK CAN BUY -->
+                  
                   <!-- START CODE FOR LIMITING AMOUNT CUST CAN BUY -->
                   {% if item.product.type == 'Trucks' and item.quantity > 10 %}
                   <br><h2><font color="blue">*Max trucks are 10 per style</font>
