@@ -366,7 +366,7 @@ return confirm("Are you sure you want to clear your cart?");
                   <!-- START CODE FOR LIMITING AMOUNT COMPLETES PREBOOK CAN BUY -->
                   {% if item.product.tags contains '091520' and item.quantity > 10 %}
                   <br><h2><font color="blue">*Max completes are 10 per style</font>
-                  <br>Update QTYs and Click 'Update Cart'</h2>
+                  <br>Auto adjusted QTY to 10 - Click 'Update Cart'</h2>
                   {% endif %}
                   <!-- END CODE FOR LIMITING AMOUNT COMPLETES PREBOOK CAN BUY -->
                   
@@ -415,7 +415,7 @@ return confirm("Are you sure you want to clear your cart?");
           <div class="grid">
 
             <div class="grid-item one-half medium-down--one-third text-right">
-              <input type="number" name="updates[]" id="updates_{{ item.id }}" value="{% if item.product.type == 'Trucks' and item.quantity > 10 %}10{%elsif item.product.type == 'Wheels' and item.quantity > 10 %}10{%elsif item.product.type == 'Decks' and item.quantity > 5 %}5{% else %}{{ item.quantity }}{% endif %}" min="0" data-id="{{ item.id }}">
+              <input type="number" name="updates[]" id="updates_{{ item.id }}" value="{% if item.product.type == 'Trucks' and item.quantity > 10 %}10{%elsif item.product.type == 'Wheels' and item.quantity > 10 %}10{%elsif item.product.type == 'Decks' and item.quantity > 5 %}5{%elsif item.product.type == 'Prebook2' and item.quantity > 10 %}10{% else %}{{ item.quantity }}{% endif %}" min="0" data-id="{{ item.id }}">
             </div>
 
             <div class="grid-item one-third medium-down--one-third medium-down--text-left text-right">
