@@ -372,15 +372,15 @@ return confirm("Are you sure you want to clear your cart?");
                   
                   <!-- START CODE FOR LIMITING AMOUNT CUST CAN BUY -->
                   {% if item.product.type == 'Trucks' and item.quantity > 10 %}
-                  <br><h2><font color="blue">*Max trucks are 10 per style</font>
+                  <br><h2><font color="blue">*Max trucks are 4 per style</font>
                   <br>Update QTYs and Click 'Update Cart'</h2>
                   {% endif %}
                   {% if item.product.type == 'Decks' and item.quantity > 5 %}
-                  <br><h2><font color="blue">*Max decks are 5 per style</font>
+                  <br><h2><font color="blue">*Max decks are 2 per style</font>
                   <br>Update QTYs and Click 'Update Cart'</h2>
                   {% endif %}
                   {% if item.product.type == 'Wheels' and item.quantity > 10 %}
-                  <br><h2><font color="blue">*Max wheels are 10 per style</font>
+                  <br><h2><font color="blue">*Max wheels are 4 per style</font>
                   <br>Update QTYs and Click 'Update Cart'</h2>
                   {% endif %}
                   <!-- END CODE FOR LIMITING AMOUNT CUST CAN BUY -->
