@@ -49,6 +49,11 @@
 
   <div class="grid-item{% if has_sidebar %} large--four-fifths grid-border--left{% endif %}">
 
+	<!-- START TRUCK NOTE -->
+	{% include 'toggle-filters' %} {% if  collection.title == "Trucks" or collection.title == "Thunder Trucks" or collection.title == "Venture Trucks" %} 
+   <p><h3><font color="red">Please note</font> truck prices have increased. </h3>
+  <h5>Contact your Deluxe sales rep with questions or if you need more information.</h5>{% endif %}
+	<!-- END TRUCK NOTE -->
     {% comment %}
       Different markup if description is set
     {% endcomment %}

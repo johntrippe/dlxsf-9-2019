@@ -49,6 +49,12 @@
 
   <div class="grid-item{% if has_sidebar %} large--four-fifths grid-border--left{% endif %}">
 
+  <!-- START DECKS NOTE -->
+	{% include 'toggle-filters' %} {% if  collection.title == "Decks" %} 
+  <p><h3><font color="red">Please note</font> deck prices have increased. </h3>
+  <h5>Contact your Deluxe sales rep with questions or if you need more information.</h5>{% endif %}
+	<!-- END DECKS NOTE -->
+
     {% comment %}
       Different markup if description is set
     {% endcomment %}
