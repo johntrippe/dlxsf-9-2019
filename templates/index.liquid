@@ -1,236 +1,44 @@
-{% assign collection = collections.2021-summer-prebook %}
+<div class="grid-item" style="padding: 0px;">
+	<div class="grid-item large--one-whole" style="padding: 10px; padding-top:0px;">
+		<p><h3>We hope that you, your families, staff, and crews are well and hanging in there.</p>
 
-{% paginate collection.products by 1000 %}
+<p>This year, with COVID 19, and everything else has been challenging for everyone.</p>
 
-{% include 'breadcrumb' %}
+<p>It has been a tough journey for us here at DLX; there’s no other way to put it.</p>
 
-{% assign has_sidebar = false %}
-{% if collection.all_tags.size > 0 %}
-  {% assign has_sidebar = true %}
-{% endif %}
+<p>Navigating the changing obstacles that continue to evolve has been a grind for sure.</p>
 
-<div class="grid grid-border">
-	
+<p>Working to serve those who support us the way we had been able to pre-pandemic is what we are working hard to improve and get back to for everyone connected to this place.</p>
 
-  {% if has_sidebar %}
-  <aside class="sidebar grid-item large--one-fifth collection-filters" id="collectionFilters">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-					
-					<script type="text/javascript">	
-					if($(window).width() >= 900){	
-						jQuery("document").ready(function($){
-						
-						var nav3 = $('.nav-container2');
-						
-						$(window).scroll(function () {
-							if ($(this).scrollTop() > 136) {
-								nav3.addClass("f-nav2");
-							} else {
-								nav3.removeClass("f-nav2");
-							}
-						});
-					
-					});
-					}
-					
-					</script>
-					
-					
-					
-					
-					<div class="nav-container2">
-						
-						{% include 'collection-sidebar' %}
-						
-					</div>
-  </aside>
-  {% endif %}
+<p>DLX continues to follow S.F’s strict COVID 19 safety guidelines. Most of our staff are still working from home.  Product supply and our inventory from our suppliers are starting to improve. We hope you begin to see improvements from our side in our ability to get you our products in a faster way.</p>
 
+<p>Thank you for your patience and understanding last month while we worked to re-stock and update our B2B system to allow for quicker turnaround on any new orders placed. To speed up fulfilling orders to more shops, the B2B has some quantity limits on items you can order with each shop location allowed one order per week.</p>
 
-  <div class="grid-item{% if has_sidebar %} large--four-fifths grid-border--left{% endif %}">
-
-    {% comment %}
-      Different markup if description is set
-    {% endcomment %}
-    {% if collection.description != blank %}
-      <header class="section-header">
-        <h1 class="section-header--title">{{ collection.title }}</h1>
-        <div class="rte rte--header">
-          {{ collection.description }}
-        </div>
-        
-        <div class="section-header--right">
-
-
-      
-      <div class="order-form-add-to-cart">
-	      <span id="hide-cart" style="display:none;"><a href="/cart" class="header-cart-btn">
-            <span class="icon icon-cart"></span>
-            {{ 'layout.cart.cart' | t }} <span id="cartCount" {% if cart.item_count == 0 %}class="hidden-count"{% endif %}>{{ cart.item_count }}</span>
-          </a>
-	      </span>
-          <br><br>
-          <input class="action-button submit button btn3 right add-to-cart-order-form" type="button" value="Add To Cart" />
-      </div>
-
-      
-      </div>
-      
-      
-      </header>
-      <hr class="hr--offset-left">
-      <div class="section-header">
-        <div class="section-header--right">
-          <!-- {% include 'collection-sorting' %} -->
-          <!-- {% include 'collection-views' %} -->
-          {% include 'toggle-filters' %}
-        </div>
-      </div>
-    {% else %}
-<!-- 
-<p><h2>Thank you for your understanding during these difficult and unprecedented times.</h2> DLX remains closed to 70% of our post-Covid staff numbers who are working from home. To say it has been challenging the last month would be an understatement. Feels like we are daily learning new lessons in flexibility and how to accomplish what we need to in new ways.</p>
-
-<p>The warehouse crew has been working hard and long hours to try to get caught up. We are thankful for their efforts.</p>
-
-<p>That said, it still is a much smaller crew, allowing for social distancing in the warehouse, so the amount of orders we can get out continues to be less than before the Pandemic. We’ve shipped orders to nearly 300 shops in the last month and continue to fill orders placed on the B2B in the order they came in.</p>
-
-<p>Next week we hope to have a swing shift up and running safely, and a few other new ideas that should help us fill more orders faster. We apologize for these delays. We know many are impacted, and it feels really shitty to have so many great people and shops waiting for us to get stuff to them.</p>
-
-<p>We are hoping to be caught up in a couple weeks and continue to work on new ways to make it easier and faster to get you what you need—hoping to have the B2B open in a couple weeks for new orders – but pushing to be sooner. </p>
-
-<p>Despite the current At Once order backlog, we understand many are planning for their upcoming seasonal apparel buys. To try to keep on some semblance of a calendar for those types of releases, we are rolling out our 2021 Spring Prebook now, orders due on September 4th, and shipping next February 2021.</p>
-
-<p>No pressure from our end on the prebook. If you want to get an order in, please do. If not, all good. In light of the uncertainty that still exists, we will check back with you and confirm your order before it ships, so you are 100% in the loop.</p>
-
-<p>The past five months have been like nothing we have ever dealt with, or could have planned for. We hope you, your families, staff, and crews are healthy and hanging in there. We are thankful to be able to do what we are doing now versus where we were a few months ago.</p>
-
-<p>Hopefully some of the changes we are making, and the increase of product we are receiving will help things continue to move forward in a better direction for everyone.</p>
-
-<p>Please do not hesitate to hit us directly for clarity on your orders, and how we can help with things at your shop.</p>
-
-<p>
-  Thank you again,<br>
-  DLX
-</p> 
-  -->  
-<p></p>
-
-    {% section 'collection-header' %}
-    
-    
-    <header class="section-header">
-     
-      
-      	
-     
-      <div class="section-header--right">
-
-      
-      <div class="f-nav4">
-	      <span id="hide-cart" style="display:none;"><a href="/cart" class="header-cart-btn">
-            <span class="icon icon-cart"></span>
-            {{ 'layout.cart.cart' | t }} <span id="cartCount" {% if cart.item_count == 0 %}class="hidden-count"{% endif %}>{{ cart.item_count }}</span>
-          </a>
-	      </span>
-          <br><br>
-          <input class="action-button submit button btn3 right add-to-cart-order-form" type="button" value="Add To Cart" />
-      </div>
-
-      
-      </div>
-    </header>
-    {% endif %}
-
-	
-    
-{% section 'collection' %}
-    
-
-
-  </div>
-
-  {% if paginate.pages > 1 %}
-  <div class="grid-item pagination-border-top">
-    <div class="grid">
-      <div class="grid-item{% if has_sidebar %} large--four-fifths push--large--one-fifth{% endif %}">
-          <div class="text-center">
-            {% include 'pagination-custom' %}
-          </div>
-      </div>
-    </div>
-  </div>
-  {% endif %}
-
-</div>
-
-
-
-{% endpaginate %}
-
-<script>
-Shopify.itemsToAdd = [];
-Shopify.addItemstoTheCart = function() {
-  if (Shopify.itemsToAdd.length) {
-    var item = Shopify.itemsToAdd.pop();
-    $.ajax({
-      url: '/cart/add',
-      dataType: 'json',
-      type: 'post',
-      data: item,
-      success: Shopify.addItemstoTheCart,
-      error: Shopify.addItemstoTheCart
-    });
-  }
-    else {
-    window.location = window.location;
-  }
-};
-jQuery(function($) {
-  $('table .quantity:first').focus();
-  $('[max]').change(function() {
-    var max = parseInt($(this).attr('max'), 10);
-    var value = parseInt($(this).val(), 10) || 0;
-    if (value > max) { 
-      alert('We only have ' + max + ' of this item in stock');
-      $(this).val(max); 
-    }    
-  });
-  $('.add-to-cart-order-form').click(function() {
-    $('.add-to-cart-order-form').addClass('disabled').attr('disabled','disabled');
-    // Resetting.
-    Shopify.itemsToAdd = [];
-    $('.quantity').each(function() {
-      var quantity = parseInt($(this).val(), 10);
-      if (quantity) {
-        Shopify.itemsToAdd.push( { id: $(this).attr('data-id'), quantity: quantity } );
-      }
-    });     
-    if (Shopify.itemsToAdd.length) {
-      Shopify.addItemstoTheCart();
-    }
-    else {
-      alert('All quantities are set to zero.');
-      $('.add-to-cart-order-form').removeAttr('disabled').removeClass('disabled');
-    }
-  });
-});
-</script>
-
+<b>
+  <p>For now, with each new order, you can get up to:</p>
   
-<style>
-.action-bar { margin: 15px 0; }
-.action-bar.top { margin: 30px 0 0; }
-.action-bar h1 { margin:0; padding: 0; line-height:1 }
-.left { float: left; }
-.right { float: right; }
-.clearfix:before, .clearfix:after { content: ""; display: table; }
-.clearfix:after { clear: both; }
-.clearfix { zoom: 1; }
-/* Additional styles for table */
-table.pure-table { margin: 15px 0; width: 100%; }
-table.pure-table tr td:first-child, table.pure-table tr th:first-child { padding-left: 12px; }
-table.pure-table tr td:last-child, table.pure-table tr th:last-child { padding-right: 12px; }
-table.pure-table img { float:left; padding: 5px 0; }
-table.pure-table td { vertical-align: middle; }
-.quantity { text-align: center; width: 60px !important; margin: 0 !important; }
-</style>
+  <p>2 of each board and a maximum of 20 boards total. 4 of each wheel and a maximum of 25 sets total. 4 of each truck and a maximum of 50 pieces total.</p>
+</b>
+
+<p>We will work hard to get your order packed and shipped ASAP, as well as to be ready for your next order.</p>
+
+<p>When placing new orders, please note that the prices have increased for boards and trucks.</p>
+
+<p>We experienced factory cost increases for all hardgoods earlier this year in Spring.</p>
+
+<p>We did our best not to pass those increases on to you. Several weeks ago, we received notice from our suppliers that their prices were going up again to us.  Rising costs for them brought on by the Pandemic, the changes they have had to make to their businesses from it, their suppliers, and raw materials made it necessary for them to raise the costs to us.  We kept the increases on our end to you as low as we could. We hope you understand.</p>
+
+<p>Hit up your Deluxe sales rep for questions or more information.</p>
+
+<p>Things continue to ebb and flow this year.</p>
+
+<p>We’ll keep pushing and working to do better and better for you and skateboarding.</p>
+
+<p>If we can help with anything at your store, you have suggestions for things we can do, help with, please just hit us up.</p>
+
+<p>Thank you again for everything.</p>
+
+<p>DLX</p></h3></p>
+	</div>
+</div>
+{% section 'featured' %}
