@@ -129,7 +129,13 @@
 	  {% include "add-to-cart-product-page" %}
 	  
 	  
-	  	<!-- START ADD TO CART BUTTON -->
+	  	<!-- START DEV-373 -->
+      {% if variant.inventory_quantity <= -10 and product.tags contains '100220' %}
+      <font color="red"><b>sold out</b></font>
+      {% else %}
+      <!-- END DEV-373 -->
+
+      <!-- START ADD TO CART BUTTON -->
 				<div class="order-form-add-to-cart">
 			      <span id="hide-cart" style="display:none;"><a href="/cart" class="header-cart-btn">
 		            <span class="icon icon-cart"></span>
@@ -140,6 +146,10 @@
 		          <input class="action-button submit button btn3 left add-to-cart-order-form" type="button" value="Add To Cart" />
 		</div>
 		<!-- END ADD TO CART BUTTON -->
+
+    <!-- START DEV-373 -->
+    {% endif %}
+    <!-- END DEV-373 -->
 <br><br>
 
 	<!-- START PRODUCT DESCRIPTION -->
@@ -162,6 +172,7 @@
 	<!-- START LIST PART ID -->
 	<div class="tags"><b>Part IDs:</b><br>{% for variant in product.variants %}{{ variant.sku }}{% unless forloop.last %}, {% endunless %}{% endfor %} </p></div>
 	<!-- START LIST PART ID -->
+
 	
       <hr>
 

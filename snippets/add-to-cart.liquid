@@ -84,8 +84,13 @@
 		<div style="display:inline-block;">
 		
 		
+	<!-- START DEV-373 -->
+    {% if variant.inventory_quantity <= -10 and product.tags contains '100220' %}
+    <font color="red"><b>sold out</b></font>
+    {% else %}
+    <!-- END DEV-373 -->
+
 		<!-- except if (unless) inventory management is blank or allowed to sell past negative inventory, assign max can add to how many are left minus how many the customer already has in their cart. -->
-		
 		<input type="trippe" onfocus="this.select()" class="quantity field" data-id="{{ variant.id }}" min="0" 
 		
 		
@@ -101,10 +106,12 @@
 		{% endunless %} 
 		
 		
-		type="text" value="" tabindex="1" /></div>
-
-
-
+		type="text" value="" tabindex="1" />
+		
+	<!-- START DEV-373 -->
+	{% endif %}
+	<!-- END DEV-373 -->
+	</div>
 
 
 		</div>
