@@ -138,8 +138,8 @@
       "featured": {
         "type": "featured",
         "settings": {
-          "promo1": "shopify:\/\/shop_images\/rs-sp20-d2-slider.jpg",
-          "promo1link": "\/collections\/real-decks",
+          "promo1": "shopify:\/\/shop_images\/Screen_Shot_2020-09-28_at_3.07.27_PM.png",
+          "promo1link": "\/collections\/summer-prebook",
           "promo1video": false,
           "promo1videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/sExlGSV2I3M\" frameborder=\"0\" allowfullscreen=\"\"><\/iframe><\/div>",
           "numofblogs": "1",
@@ -246,17 +246,17 @@
       "collection-header4": {
         "type": "collection-header4",
         "settings": {
-          "banner": "shopify:\/\/shop_images\/DLX-HOLIDAY20-COMPLETES-1000x500_BASE_W__DATES.jpg",
-          "pdflink": "https:\/\/www.dlxsf.com\/holiday-2020-completes.pdf",
-          "headertext": "2020 HOLIDAY COMPLETES"
+          "banner": "",
+          "pdflink": "",
+          "headertext": "Trucks"
         }
       },
       "collection4": {
         "type": "collection4",
         "settings": {
-          "brand1": "Real",
-          "brand2": "Antihero",
-          "brand3": "Krooked",
+          "brand1": "Thunder",
+          "brand2": "Venture",
+          "brand3": "",
           "brand4": "",
           "brand5": "",
           "brand6": ""
@@ -284,20 +284,20 @@
       "collection-header3": {
         "type": "collection-header3",
         "settings": {
-          "banner": "shopify:\/\/shop_images\/DLX-decks-hol191000x500-overstock.jpg",
+          "banner": "",
           "pdflink": "",
-          "headertext": "2020 SPRING PREBOOK OVERSTOCK"
+          "headertext": "Decks"
         }
       },
       "collection3": {
         "type": "collection3",
         "settings": {
-          "brand1": "Spitfire",
-          "brand2": "Antihero",
+          "brand1": "Antihero",
+          "brand2": "Real",
           "brand3": "Krooked",
-          "brand4": "Real",
-          "brand5": "Thunder",
-          "brand6": "Venture"
+          "brand4": "",
+          "brand5": "",
+          "brand6": ""
         }
       },
       "collection-header6": {
@@ -322,9 +322,9 @@
       "collection-no-brands": {
         "type": "collection-no-brands",
         "settings": {
-          "banner": "shopify:\/\/shop_images\/sf-sp20-D2-SLAG-B2B_1000x500_74546bba-4a12-4574-b509-0bb31c9c901e.jpg",
-          "pdflink": "https:\/\/www.dlxsf.com\/spitfire-skate-like-a-girl-capsule.pdf",
-          "headertext": "<p>Spitfire x Skate Like a Girl Pre Order<br>  Orders due 2\/17<br>  Ship start 4\/13<\/p>  <p><\/p><h6>Spitfire presents the Skate Like a Girl capsule. featuring Formula Four Radials in three different sizes and colors including Ice Mint 51mm’s, Glow in the Dark 53mm’s and Natural 55mm’s. The capsule also includes a full range of soft goods with two short sleeve tee’s, a long sleeve tee and a pullover hoodie. A portion of the proceeds goes to Skate Like a Girl to help them continue their great work.<\/h6><p><\/p>  <p>Skate Like a Girl is a non-profit organization focused on creating a more inclusive skateboarding community in their chapter cities and beyond. Flagship programs and events include sessions for women & trans skaters, camps, and their annual weekend event Wheels of Fortune. Together with Spitfire Wheels, Skate Like a Girl volunteer, and Bay Area artist Jessica Wu designed this capsule, which will proudly keep Skate Like a Girl rolling full speed into their 20th year.<\/p><p><\/p>"
+          "banner": "shopify:\/\/shop_images\/ssd-2.jpg",
+          "pdflink": "https:\/\/www.dlxsf.com\/skateshop-day-2021.pdf",
+          "headertext": "2021 SKATESHOP DAY"
         }
       },
       "collection-no-brands2": {
