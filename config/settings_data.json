@@ -138,8 +138,8 @@
       "featured": {
         "type": "featured",
         "settings": {
-          "promo1": "shopify:\/\/shop_images\/Screen_Shot_2020-09-28_at_3.07.27_PM.png",
-          "promo1link": "",
+          "promo1": "shopify:\/\/shop_images\/2020-11-13_14-10-44.jpg",
+          "promo1link": "\/collections\/decks",
           "promo1video": true,
           "promo1videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/ETfo5oGglf0\" frameborder=\"0\" allowfullscreen><\/iframe><\/div>",
           "numofblogs": "1",
@@ -179,9 +179,9 @@
           "new4url": "",
           "text2linkurl": "",
           "text2linktext": "",
-          "promo2": "shopify:\/\/shop_images\/RS-DEL-04-BOLD.jpg",
+          "promo2": "shopify:\/\/shop_images\/SF-MASON-SILVA-AD-B2B-500x647.jpg",
           "promo_2_selector": "promosel2",
-          "promo2link": "\/collections\/decks#Real",
+          "promo2link": "\/collections\/wheels",
           "promo3": "shopify:\/\/shop_images\/kr-20-d3-zing-zag-zog-0-2.jpg",
           "promo_3_selector": "promosel3",
           "promo3link": "\/collections\/decks#Krooked",
