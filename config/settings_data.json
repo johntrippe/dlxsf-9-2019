@@ -138,10 +138,10 @@
       "featured": {
         "type": "featured",
         "settings": {
-          "promo1": "shopify:\/\/shop_images\/1-5-21-2.jpg",
+          "promo1": "shopify:\/\/shop_images\/B2B_-_1-11.jpg",
           "promo1link": "\/collections\/decks",
           "promo1video": true,
-          "promo1videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/p0657Ys_Oss\" frameborder=\"0\" allowfullscreen><\/iframe><\/div>",
+          "promo1videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/gYiPBfnGoFc\" frameborder=\"0\" allowfullscreen><\/iframe><\/div>",
           "numofblogs": "1",
           "text1bgimage": "shopify:\/\/shop_images\/bg_1000x1000-lighter-060420.jpg",
           "text1bgcolor": "#d7da7b",
@@ -179,12 +179,12 @@
           "new4url": "",
           "text2linkurl": "",
           "text2linktext": "",
-          "promo2": "shopify:\/\/shop_images\/RS-SP-D1-MASON-SOTY-IG-FEED-3.jpg",
+          "promo2": "shopify:\/\/shop_images\/GROSSO-LANCE-AT-ONCE-FLYER-REVISED.jpg",
           "promo_2_selector": "promosel2",
-          "promo2link": "\/collections\/decks\/products\/rl-brd-mason-soty",
-          "promo3": "shopify:\/\/shop_images\/RS-STAPLE-REAL-RISERS-GROUP-FULL-3.jpg",
+          "promo2link": "\/collections\/decks",
+          "promo3": "shopify:\/\/shop_images\/SF-11-11-21.jpg",
           "promo_3_selector": "promosel3",
-          "promo3link": "\/collections\/all\/risers",
+          "promo3link": "\/collections\/wheels",
           "promo4": "shopify:\/\/shop_images\/IMG_8566.jpg",
           "promo_4_selector": "promosel8",
           "promo4link": "\/collections\/thunder-trucks\/polished",
@@ -220,7 +220,7 @@
         "type": "collection-header",
         "settings": {
           "banner": "shopify:\/\/shop_images\/DLX-HEADERS-BTS-21-PREBOOK-1000x500-BASE.jpg",
-          "pdflink": "https:\/\/www.dlxsf.com\/summer-2021-prebook.pdf",
+          "pdflink": "https:\/\/www.dlxsf.com\/bts-2021-prebook.pdf",
           "headertext": "2021 BTS PREBOOK"
         }
       },
