@@ -183,14 +183,27 @@
 	
 	<!-- START TRUCK NOTE -->
 	{% include 'toggle-filters' %} {% if  collection.title == "Trucks" or collection.title == "Thunder Trucks" or collection.title == "Venture Trucks" %} 
-  <!-- <p><h3><font color="red">NOTE – NEW ORDER LIMIT.</font> To help cover as many shops as possible while we rebuild our inventory, we’ve implemented ordering limits of 5 of any board, 10 any wheel, 10 any truck – but you can order as many styles and sizes as you want. Over limit orders will automatically be adjusted in your ‘Cart’ when checking out. And we can accept only one order per week for each shop location. Thanks for your patience – we’ll let you know when restrictions are lifted – hopefully
-soon.</h3>-->{% endif %}
+  <p>
+    
+  <p><h3><font color="red">ORDER LIMIT</font></h3>
+<ul type="disc">
+  <li type="disc"><h5>Truck Qty Limits, max of 10 per style/size and 100 total trucks per order.</h5></li>
+  <li type="disc"><h5>WE CAN ACCEPT ONLY 1 ORDER PER WEEK PER SHOP LOCATION.</h5></li>
+</ul>
+    {% endif %}
 	<!-- END TRUCK NOTE -->
 
   <!-- START DECK NOTE -->
 	{% include 'toggle-filters' %} {% if  collection.title == "Decks" or collection.title == "REAL Decks" or collection.title == "Antihero Decks" or collection.title == "Krooked Decks" %} 
-  <!-- <p><h3><font color="red">NOTE – NEW ORDER LIMIT.</font> To help cover as many shops as possible while we rebuild our inventory, we’ve implemented ordering limits of 5 of any board, 10 any wheel, 10 any truck – but you can order as many styles and sizes as you want. Over limit orders will automatically be adjusted in your ‘Cart’ when checking out. And we can accept only one order per week for each shop location. Thanks for your patience – we’ll let you know when restrictions are lifted – hopefully
-soon.</h3> -->{% endif %}
+  <p>
+    --
+<p><h3><font color="red">ORDER LIMIT</font></h3>
+<ul type="disc">
+  <li type="disc"><h5>Boards Qty Limits, max of 4 per style/size and 50 total boards per order.</h5></li>
+  <li type="disc"><h5>WE CAN ACCEPT ONLY 1 ORDER PER WEEK PER SHOP LOCATION.</h5></li>
+</ul>
+    
+    {% endif %}
 	<!-- END DECK NOTE -->
 
   <!-- START WHEELS NOTE -->
