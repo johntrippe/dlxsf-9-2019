@@ -239,7 +239,7 @@
       <!-- START PROMO 1 -->
       {% if section.settings.promo1link != blank %}
       <div class="grid-item large--one-whole" style="padding: 10px; padding-top:0px;">
-        <a href="{{ section.settings.promo1link }}"><img src="{{ section.settings.promo1 | img_url: '1000x500' }}" border="0"></a>
+        <a id="promo1" href="{{ section.settings.promo1link }}"><img src="{{ section.settings.promo1 | img_url: '1000x500' }}" border="0"></a>
       </div>
       {% endif %}
       <!-- END PROMO 1 -->
