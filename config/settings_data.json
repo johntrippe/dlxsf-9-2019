@@ -138,10 +138,10 @@
       "featured": {
         "type": "featured",
         "settings": {
-          "promo1": "shopify:\/\/shop_images\/1-25_B2B_header.jpg",
-          "promo1link": "\/collections\/decks",
+          "promo1": "shopify:\/\/shop_images\/020321-DLX-HEADERS-BTS-21-PREBOOK-1000x500-FINAL-CALL-w_-DATES.jpg",
+          "promo1link": "\/collections\/bts-prebook",
           "promo1video": true,
-          "promo1videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/fKOUbrwZcew\" frameborder=\"0\" allowfullscreen><\/iframe><\/div>",
+          "promo1videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/oq6bLFtMsd0\" frameborder=\"0\" allowfullscreen><\/iframe><\/div>",
           "numofblogs": "1",
           "text1bgimage": "shopify:\/\/shop_images\/bg_1000x1000-lighter-060420.jpg",
           "text1bgcolor": "#d7da7b",
@@ -179,10 +179,10 @@
           "new4url": "",
           "text2linkurl": "",
           "text2linktext": "",
-          "promo2": "shopify:\/\/shop_images\/ve-1-25.jpg",
+          "promo2": "shopify:\/\/shop_images\/KB-wheel-update.jpg",
           "promo_2_selector": "promosel2",
-          "promo2link": "\/collections\/trucks",
-          "promo3": "shopify:\/\/shop_images\/1-25-ah.jpg",
+          "promo2link": "\/collections\/spitfire-wheels\/products\/bradley-before-midnight-f4-99-classic",
+          "promo3": "shopify:\/\/shop_images\/r-barbee.jpg",
           "promo_3_selector": "promosel3",
           "promo3link": "\/collections\/decks",
           "promo4": "shopify:\/\/shop_images\/IMG_8566.jpg",
@@ -191,7 +191,7 @@
           "promo5": "shopify:\/\/shop_images\/SPRING-PRE-OVERSTOCK-2.jpg",
           "promo_5_selector": "promosel5",
           "promo5link": "\/collections\/2020-spring-prebook-overstock",
-          "promo6": "shopify:\/\/shop_images\/DLX-HEADERS-BTS-21-PREBOOK-1000x500-BASE_e088a322-4732-4086-80d0-3b36b9db0a98.jpg",
+          "promo6": "shopify:\/\/shop_images\/DLX-HEADERS-BTS-21-PREBOOK-1000x500-1WEEK-w_-DATES.jpg",
           "promo6link": "\/collections\/2021-bts-prebook",
           "promo6video": true,
           "promo6videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/zUUPMpWLuvY\" frameborder=\"0\" allowfullscreen><\/iframe><\/div>",
@@ -227,7 +227,7 @@
       "collection-header2": {
         "type": "collection-header2",
         "settings": {
-          "banner": "shopify:\/\/shop_images\/DLX-HEADERS-BTS-21-PREBOOK-1000x500-BASE.jpg",
+          "banner": "shopify:\/\/shop_images\/DLX-HEADERS-BTS-21-PREBOOK-1000x500-1WEEK-w_-DATES.jpg",
           "pdflink": "https:\/\/www.dlxsf.com\/bts-2021-prebook.pdf",
           "headertext": "2021 BTS PREBOOK"
         }
