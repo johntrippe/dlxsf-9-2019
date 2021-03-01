@@ -35,7 +35,7 @@
         {% endif %}</a>
         
         {% if product.available == false %}
-        	- <font color="red">Unavailable</font>
+        	- <font color="red">{% if product.id == 6535779516488 %}Sold Out{% else %}Unavailable{% endif %}</font>
         {% endif %}
         
         <!-- START NEW SEASON -->
