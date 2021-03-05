@@ -138,10 +138,10 @@
       "featured": {
         "type": "featured",
         "settings": {
-          "promo1": "shopify:\/\/shop_images\/2-22_for_B2B.jpg",
+          "promo1": "shopify:\/\/shop_images\/3-1-B2B-COVER.jpg",
           "promo1link": "\/collections\/decks",
           "promo1video": true,
-          "promo1videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/QmtCkrKaqvQ\" frameborder=\"0\" allowfullscreen><\/iframe><\/div>",
+          "promo1videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/tO3jWPMm7q8\" frameborder=\"0\" allowfullscreen><\/iframe><\/div>",
           "numofblogs": "1",
           "text1bgimage": "shopify:\/\/shop_images\/bg_1000x1000-lighter-060420.jpg",
           "text1bgcolor": "#d7da7b",
@@ -179,7 +179,7 @@
           "new4url": "",
           "text2linkurl": "",
           "text2linktext": "",
-          "promo2": "shopify:\/\/shop_images\/eclipsing.jpg",
+          "promo2": "shopify:\/\/shop_images\/3-1-real.jpg",
           "promo_2_selector": "promosel2",
           "promo2link": "\/collections\/real-decks",
           "promo3": "shopify:\/\/shop_images\/RS-SP21-DEL1-02.jpg",
