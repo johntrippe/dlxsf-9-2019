@@ -233,28 +233,54 @@
   </div>
 </div>
 
-<!-- START DEV-429 TEST -->
+<!-- START ASSOCIATED PRODUCTS DEV-429 -->
 
-
- 
-      {% for product in collections.all.products  limit: product_limit %}
-  
- 			  {% for c in product.collections %}
-                {% for tag in product.tags %} 
-                              {% if tag == "5880215535688" %} 
-                                                
-                                cc
-                              {% endif %}
-          
-                {% endfor %}
-  
-      {% endfor %}  
+<!-- 2021-03-17 -->
+{% if product.tags contains 'Skate Like a Girl' %}
+  <div class="grid-item" style="padding: 0px;">
+    <div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;"><h1>More from Skate Like a Girl:</h1></div>
+    <div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;">
+      {% for product in collections.all.products %}
+        {% if product.tags contains 'Skate Like a Girl' %}
+          {% include 'product-grid-item' %}
+        {% endif %}
       {% endfor %} 
+    </div>
+  </div>
+{% endif %}
+
+<!-- 2021-03-17 -->
+{% if product.tags contains 'Eclipsing' %}
+<div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;"><h1>More from Eclipsing</h1></div>
+<div class="grid-item" style="padding: 0px;">
+    <div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;">
+      {% for product in collections.all.products %}
+        {% if product.tags contains 'Eclipsing' %}
+          {% include 'product-grid-item' %}
+        {% endif %}
+      {% endfor %} 
+    </div>
+  </div>
+{% endif %}
+
+<!-- 2021-03-17 -->
+{% if product.tags contains 'GT Capsule' %}
+  <div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;"><h1>More from GT Capsule</h1></div>
+  <div class="grid-item" style="padding: 0px;">
+    <div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;">
+      {% for product in collections.all.products %}
+        {% if product.tags contains 'GT Capsule' %}
+          {% include 'product-grid-item' %}
+        {% endif %}
+      {% endfor %} 
+    </div>
+  </div>
+{% endif %}
 
 
 
 
-<!-- END DEV-429 TEST -->
+<!-- STOP ASSOCIATED PRODUCTS DEV-429 -->
 
 
 {% include 'recently-viewed' %}
