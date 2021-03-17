@@ -233,6 +233,30 @@
   </div>
 </div>
 
+<!-- START DEV-429 TEST -->
+
+
+ 
+      {% for product in collections.all.products  limit: product_limit %}
+  
+ 			  {% for c in product.collections %}
+                {% for tag in product.tags %} 
+                              {% if tag == "5880215535688" %} 
+                                                
+                                cc
+                              {% endif %}
+          
+                {% endfor %}
+  
+      {% endfor %}  
+      {% endfor %} 
+
+
+
+
+<!-- END DEV-429 TEST -->
+
+
 {% include 'recently-viewed' %}
 
 
