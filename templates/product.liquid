@@ -238,8 +238,8 @@
 <!-- 2021-03-17 -->
 {% if product.tags contains 'Skate Like a Girl' %}
   <div class="grid-item" style="padding: 0px;">
-    <div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;"><h1>More from Skate Like a Girl:</h1></div>
-    <div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;">
+    <div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;"><hr><h1>More from Skate Like a Girl:</h1></div>
+    <div class="grid-uniform">
       {% for product in collections.all.products %}
         {% if product.tags contains 'Skate Like a Girl' %}
           {% include 'product-grid-item' %}
@@ -251,8 +251,8 @@
 
 <!-- 2021-03-17 -->
 {% if product.tags contains 'Eclipsing' %}
-<div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;"><h1>More from Eclipsing</h1></div>
-<div class="grid-item" style="padding: 0px;">
+<div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;"><hr><h1>More from Eclipsing</h1></div>
+<div class="grid-uniform">
     <div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;">
       {% for product in collections.all.products %}
         {% if product.tags contains 'Eclipsing' %}
@@ -265,8 +265,8 @@
 
 <!-- 2021-03-17 -->
 {% if product.tags contains 'GT Capsule' %}
-  <div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;"><h1>More from GT Capsule</h1></div>
-  <div class="grid-item" style="padding: 0px;">
+  <div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;"><hr><h1>More from GT Capsule:</h1></div>
+  <div class="grid-uniform">
     <div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;">
       {% for product in collections.all.products %}
         {% if product.tags contains 'GT Capsule' %}
