@@ -141,7 +141,7 @@
           "promo1": "shopify:\/\/shop_images\/2021-03-22.jpg",
           "promo1link": "\/collections\/decks",
           "promo1video": true,
-          "promo1videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/8C-uFpZSXjo?rel=0&modestbranding=1\" frameborder=\"0\" allowfullscreen><\/iframe><\/div>",
+          "promo1videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/8C-uFpZSXjo?modestbranding=1&rel=0&controls=0&showinfo=0\" frameborder=\"0\" allowfullscreen><\/iframe><\/div>",
           "numofblogs": "1",
           "text1bgimage": "shopify:\/\/shop_images\/bg_1000x1000-lighter-060420.jpg",
           "text1bgcolor": "#d7da7b",
@@ -194,7 +194,7 @@
           "promo6": "shopify:\/\/shop_images\/SF-GTcapsule-bramphoto-hires-2004.jpg",
           "promo6link": "\/collections\/spitfire-gt-capsule",
           "promo6video": true,
-          "promo6videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/N4CIgiFDPLU\" frameborder=\"0\" allowfullscreen><\/iframe><\/div>",
+          "promo6videolink": "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }<\/style><div class=\"embed-container\"><iframe src=\"https:\/\/www.youtube.com\/embed\/\/N4CIgiFDPLU?modestbranding=1&rel=0&controls=0\" frameborder=\"0\" allowfullscreen><\/iframe><\/div>",
           "promo7": "shopify:\/\/shop_images\/staples-promo-zone2.gif",
           "promo_7_selector": "promosel7",
           "promo7link": "\/collections\/staples-collection",
@@ -219,8 +219,9 @@
       "collection-header": {
         "type": "collection-header",
         "settings": {
+          "banner": "shopify:\/\/shop_images\/DLX-HOL21-Prebook-1000-x-500---MAIN.jpg",
           "pdflink": "https:\/\/www.dlxsf.com\/holiday-2021-prebook.pdf",
-          "headertext": "2021 HOLIDAY PREBOOK <br><br>Orders Due April 22nd \/ Orders Ship October 11th"
+          "headertext": "2021 HOLIDAY PREBOOK"
         }
       },
       "collection-header2": {
