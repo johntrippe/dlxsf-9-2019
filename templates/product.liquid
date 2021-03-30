@@ -235,6 +235,34 @@
 
 <!-- START ASSOCIATED PRODUCTS DEV-429 -->
 
+<!-- 2021-03-30 -->
+{% if product.tags contains 'Bryce Wong' %}
+  <div class="grid-item" style="padding: 0px;">
+    <div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;"><hr><h1>More from Bryce Wong Series:</h1></div>
+    <div class="grid-uniform">
+      {% for product in collections.all.products %}
+        {% if product.tags contains 'Bryce Wong' %}
+          {% include 'product-grid-item' %}
+        {% endif %}
+      {% endfor %} 
+    </div>
+  </div>
+{% endif %}
+
+<!-- 2021-03-30 -->
+{% if product.tags contains 'City Blocks' %}
+  <div class="grid-item" style="padding: 0px;">
+    <div class="grid-item large--one-whole" style="padding: 0px; padding-top:20px;"><hr><h1>More from REAL City Blocks:</h1></div>
+    <div class="grid-uniform">
+      {% for product in collections.all.products %}
+        {% if product.tags contains 'City Blocks' %}
+          {% include 'product-grid-item' %}
+        {% endif %}
+      {% endfor %} 
+    </div>
+  </div>
+{% endif %}
+
 <!-- 2021-03-17 -->
 {% if product.tags contains 'Skate Like a Girl' %}
   <div class="grid-item" style="padding: 0px;">
